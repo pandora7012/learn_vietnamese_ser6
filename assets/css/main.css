@@ -20,7 +20,7 @@
 .banner__introduce h3{
     color: #231f20;
 }
-.banner__learning, banner__practice {
+.banner__learning, .banner__practice {
     height:55rem;
 }
 .banner__content {
@@ -50,11 +50,9 @@
     height:6rem;
     border-radius:1rem ;
     background-color: #5774fc;
-    /* -webkit-box-shadow: 0px 4px 0px #5774fc, 0px 4px 20px #000000; */
 }
 .btn-success:hover{
     background-color: #4264fd;
-    /* -webkit-box-shadow: 0px 4px 0px #5774fc, 0px 4px 20px #000000; */
 }
 .btn--start{
     margin: auto !important;
