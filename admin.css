@@ -1,0 +1,124 @@
+*{ 
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+}
+.header{
+    width: 100%;
+    height: 40px;
+    background-color: blue;
+}
+.home_page{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.home_page .left_content{
+    width: 30%;
+    background-color: blueviolet;
+    height: 900px;
+}
+.home_page .left_content .infor_admin{
+    display: flex;
+    width: 100%;
+    height: 30%;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+
+}
+.home_page .left_content .infor_admin .infor_admin_img{
+    margin-bottom: 50px;
+    width: 100px;
+    height: 100px;
+    border: 5px;
+    background-color: bisque;
+}
+
+
+.home_page .left_content .add_lession{
+    width: 100%;
+    height: 10%;
+    background-color: white;
+}
+
+.home_page .left_content .add_lession .btn_add_lession{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+}
+.home_page .left_content .statistic_user{
+    width: 100%;
+    height: 10%;
+    background-color: pink;
+}
+.home_page .left_content .statistic_user .btn_statistic_user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+}
+.home_page .left_content .statistic_lession{
+    width: 100%;
+    height: 10%;
+    background-color: plum;
+}
+.home_page .left_content .statistic_lession .btn_statistic_lession{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+
+.home_page .right_content{
+    width: 70%;
+    background-color: red;
+    height: 900px;
+}
+.home_page .right_content .right_content_header{
+    width: 100%;
+    background-color: powderblue;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.home_page .right_content .right_content_header .right_content_header_left{
+    width: 60%;
+    background-color: burlywood;
+}
+.home_page .right_content .right_content_header .right_content_header_left #content1{
+    margin-left: 10px;
+    font-size: 20px;
+}
+.home_page .right_content .right_content_header .right_content_header_right{
+    width: 60%;
+    background-color: palegreen;
+}
+.home_page .right_content .right_content_header .right_content_header_right .btn_signout{
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 400px;
+}
+.home_page .right_content .main_content{
+    width: 100%;
+    background-color: navajowhite;
+    height: 900px;
+}
