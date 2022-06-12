@@ -1,241 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/css/homepage.css">
-    <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'> -->
-    <style>
-        /* Duy */
-        .profile .card {
-            /* padding-bottom: 1.5rem; */
-            border-radius: 10px;
-        }
-
-        .profile .card .card-header .profile_img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            margin: 10px auto;
-            border: 10px solid #ccc;
-            border-radius: 50%;
-        }
-
-        .profile .card h3 {
-            font-size: 25px;
-            font-weight: 900;
-        }
-
-        .profile .card p {
-            font-size: 16px;
-            color: #000;
-        }
-
-        .profile .table th,
-        .profile .table td {
-            font-size: 16px;
-            padding: 5px 10px;
-            color: #000;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .row {
-            display: flex;
-            /* flex-wrap: wrap; */
-            margin-right: -15px;
-            margin-left: -15px;
-        }
-
-        .shadow-sm {
-            box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
-        }
-
-        .card-body {
-            flex: 1 1 auto;
-            padding: 1.25rem;
-            padding-top: 0
-        }
-
-        .card {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            min-width: 0;
-            background-color: #fff;
-            border: 1px solid rgba(0, 0, 0, .125);
-            border-radius: .25rem;
-        }
-
-        .bg-transparent {
-            background-color: transparent !important
-        }
-
-        .col-lg-8 {
-            flex: 0 0 66.666667%;
-            max-width: 66.666667%
-        }
-
-        .col-lg-4 {
-            flex: 0 0 33.333333%;
-            max-width: 33.333333%;
-        }
-
-        .container {
-            width: 80%;
-            padding: 15px;
-            margin-right: auto;
-            margin-left: auto;
-        }
-
-        .card-header {
-            padding: .75rem 1.25rem;
-            margin-bottom: 0;
-            background-color: rgba(0, 0, 0, .03);
-            border-bottom: 1px solid rgba(0, 0, 0, .125);
-            border: 0
-        }
-
-        .card-header2 {
-            margin-top: 15px;
-            padding: .75rem 1.25rem;
-            margin-bottom: 0;
-            background-color: rgba(225, 243, 87, 0.83);
-            border-radius: .25rem;
-            cursor: pointer;
-            border: 0
-        }
-
-        .card-header2:hover {
-            background-color: greenyellow;
-        }
-    </style>
+<%@include file="includes/header.jsp" %>
+<link rel="stylesheet" href="./assets/css/practice_st.css">
 </head>
-
 <body>
-    <div class="homepage-container">
-        <div class="header">
-            <div class="header-content_wrapper">
-                <div class="header-content">
-                    <div class="left_content">
-                        <div class="left_content-item">
-                            <img src="https://d3uk5h2fsqai9v.cloudfront.net/assets/ellii-logo-rgb-yellow-bulb-3797d90c86b8ea228145439af7574b30fc73f2f80ca5eca666ced3b11f200a9e.svg"
-                                alt="logo">
-                        </div>
-                        <div class="left_content-item">
-                            <a href="index.html" class="left_content-item-link">Trang ch?</a>
-                        </div>
-                        <div class="left_content-item">
-                            <a href="hoctap.html" class="left_content-item-link">H?c t?p</a>
-                        </div>
-                        <div class="left_content-item">
-                            <span>Luy?n t?p</span>
-                        </div>
-                        <div class="left_content-item">
-                            <span>Th‡nh tÌch</span>
-                        </div>
+    <div class="wrapper">
+        <%@include file="includes/navbar.jsp" %>
+        <div class="content">
+            <div class="question-number">
+                <ul class="list-question">
+                    <li class="question--item"><a href="#" onclick="GetThemeInfo(this.value)">Theme 1</a></li>
+                    <li class="question--item"><a href="#" onclick="GetThemeInfo(this.value)">Theme 2</a></li>
+                    <li class="question--item"><a href="#" onclick="GetThemeInfo(this.value)">Theme 3</a></li>
+                </ul>
+            </div>
+            <div class="practice_block" dir="auto">
+                <div class="question_block" dir="auto">
+                    <div class="question" dir="auto"><span class="question_content" id="question_content">ƒê√¢y l√† c√¢u h·ªèi !!! </span></div>
+                </div>
+                <div class="content-question">
+                    <div class="time-running">
+                        <span id="timer">10s</span>
                     </div>
-                    <div class="right_content">
-                        <div class="right_content-item">
-                            <span>Login</span>
-                        </div>
-                        <div class="SignUp_btn">
-                            <span>Sign Up</span>
-                        </div>
+                    <div class="question_image_contain" , dir="auto">
+                        <img class="question_img" src="./assets/images/c.jpg" alt="image">
+                    </div>
+                    <div class="score" id='score'>
+                        <span>14</span>
                     </div>
                 </div>
+                <div class="answer_contain">
+                    <button class="answer_button1" role="button" id="buttonA" onclick="CheckAnswer(id)"> A </button>
+                    <button class="answer_button2" role="button" id="buttonB" onclick="CheckAnswer(id)"> B </button>
+                    <button class="answer_button3" role="button" id="buttonC" onclick="CheckAnswer(id)"> C </button>
+                    <button class="answer_button4" role="button" id="buttonD" onclick="CheckAnswer(id)"> D </button>
+                </div>
+                <script src='./assets/js/practice_js.js'></script>
             </div>
         </div>
-        <div class="yellow-bar"></div>
-        <!-- Duy -->
-        <div class="lesson">
-            <div class="profile">
+        <footer>
+            <div class="footer-top">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="card">
-                                <div class="card-header bg-transparent text-center">
-                                    <img class="profile_img"
-                                        src="https://motgame.vn/wp-content/uploads/2022/05/anya-spy-x-family-meme-6.jpg"
-                                        alt="student dp">
-                                    <h3>Nguy?n Ng?c Duy</h3>
-                                </div>
-                                <!-- <div class="card-body">
-                                    <p class="mb-0"><strong class="pr-1"></strong></p>
-                                </div> -->
-                            </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="card shadow-sm">
-                                <div class="card-header bg-transparent ">
-                                    <h3>ThÙng tin kh·ch h‡ng</h3>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table">
-                                        <tr>
-                                            <th width="30%">H? v‡ tÍn</th>
-                                            <td>
-                                                <!-- <input type="text"></input> -->
-                                                Nguy?n Ng?c Duy
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th width="30%">Sinh n?m</th>
-                                            <td>
-                                                <!-- <input type="text"></input> -->2001
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th width="30%">Gi?i tÌnh</th>
-                                            <td>
-                                                <!-- <input type="text"></input> -->Nam
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th width="30%">QuÍ qu·n</th>
-                                            <td>
-                                                <!-- <input type="text"></input> -->H‡ N?i
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th width="30%">TÍn ??ng nh?p</th>
-                                            <td>
-                                                <!-- <input type="text"></input> -->ngocduy2001@gmail.com
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th width="30%">M?t kh?u</th>
-                                            <td>
-                                                <!-- <input type="text"></input> -->
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <button class="card-header2" type="button"
-                                        onclick="alert('C?p nh?t th‡nh cÙng')">C?p
-                                        nh?t
-                                        thÙng tin
-                                        kh·ch h‡ng</button>
-                                </div>
-                            </div>
-                            <div style="height: 25px"></div>
-                            <div class="card shadow-sm">
-                                <div class="card-header bg-transparent ">
-                                    <h3 class="">Gi?i thi?u v? b?n th‚n</h3>
-                                </div>
-                                <div class="card-body">
-                                    <p>Hello</p>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="text-copyright">
+                        Nh√≥m 2 - D19 - Khoa C√¥ng ngh·ªá th√¥ng tin - H·ªçc vi·ªán C√¥ng ngh·ªá B∆∞u ch√≠nh vi·ªÖn th√¥ng
                     </div>
                 </div>
             </div>
-        </div>
+        </footer>
+        <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     </div>
 </body>
 
