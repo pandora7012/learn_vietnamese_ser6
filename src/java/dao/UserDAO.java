@@ -7,30 +7,31 @@ package dao;
 import bean.User;
 import java.io.*;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import util.DBConnection;
 
 public class UserDAO {
     private Connection conn = (Connection) DBConnection.getConnection();
+    
+//    public static boolean uploadImages
     public User checkLogin(String username, String password){
         User user = null;
-        byte b[];
-        Blob blob;
         try {
-            String sql = "Select * from tbluser where username = ? and password = ?";
+            String sql = "Select * from tbl_user where username = ? and t_password = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, username);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                user = new User();
-                user.setID(rs.getInt("id"));
-                user.setUsername(rs.getString("username"));
-                user.setPassword(rs.getString("password"));
-                user.setFull_name(rs.getString("full_name"));
-                user.setEmail(rs.getString("email"));
-                user.setPhone(rs.getString("phone"));
-                return user;
-//                InputStream ins = new FileInputStream(new File("/"));
+                user = new User(rs.getString("username"),
+                                rs.getString("t_password"),
+                                rs.getString("email"),
+                                rs.getInt("numStar"),
+                                rs.getInt("numLession"),
+                                rs.getString("fullname"),
+                                rs.getString("gender")
+                );
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -39,14 +40,19 @@ public class UserDAO {
     }
     public boolean addNewUser(User user){
         boolean set = false;
+        
         try{
-            String query = "insert into tbluser(username, password, full_name, email) values(?,?,?,?)";
+            String query = "insert into tbl_user(fullname, username, t_password, avt, numStar, numLession, email) values(?,?,?,?,?,?,?)";
             PreparedStatement pt = this.conn.prepareStatement(query);
-            pt.setString(1, user.getUsername());
-            pt.setString(2, user.getPassword());
-            pt.setString(3, user.getFull_name());
-            pt.setString(4, user.getEmail());
-            pt.executeUpdate();
+            pt.setString(1, user.getFull_name());
+            pt.setString(2, user.getUsername());
+            pt.setString(3, user.getPassword());
+            InputStream in = new FileInputStream("/web/assets/images/user_1.png");
+            pt.setBlob(4, in);
+            pt.setInt(5, 0);
+            pt.setInt(6, 0);
+            pt.setString(7, user.getEmail());
+            pt.execute();
             set = true;
             return set;
         }catch(Exception e){
@@ -55,7 +61,7 @@ public class UserDAO {
         return set;
     }
     public boolean checkExist(String username){
-        String query = "select * from tbluser where username = ?";
+        String query = "select * from tbl_user where username = ?";
         try{
             PreparedStatement ps = this.conn.prepareStatement(query);
             ps.setString(1, username);
@@ -67,5 +73,20 @@ public class UserDAO {
             e.printStackTrace();
         }
         return false;
+    }
+    public byte[] getImageData(String username){
+        String sql = null;
+        try {
+            sql = "select avt from tbl_user where username = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getBytes("avt");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

@@ -7,8 +7,6 @@ package controller;
 import bean.User;
 import dao.UserDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
-import static java.lang.System.out;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -52,21 +50,18 @@ public class LoginServlet extends HttpServlet {
         
         String key = request.getParameter("username");
         String pass = request.getParameter("password");
-        
+        HttpSession session = request.getSession();
         UserDAO ld = new UserDAO();
         User user = ld.checkLogin(key,pass);
-        String destPage = "/index.jsp";
         if(user != null){
-            HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            session.setAttribute("username", user.getUsername());
-            response.sendRedirect(destPage);
+            request.setAttribute("message_error", "");
+            response.sendRedirect("ProcessHomePage");
         }else{
-            request.setAttribute("error", "invalid login");
-            destPage = "/login.jsp";
-            RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
-            dispatcher.forward(request, response);
-//            response.sendRedirect(request.getParameter("origin"));
+            session.invalidate();
+            request.setAttribute("message_error", "Invalid user or password");
+            RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+                rd.forward(request, response);
         }
     }
 }

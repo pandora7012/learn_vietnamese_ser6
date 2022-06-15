@@ -1,5 +1,5 @@
 <%@include file="includes/header.jsp" %>
-<link rel="stylesheet" href="./assets/css/practice_st.css">
+<link rel="stylesheet" href="./css/practice_st.css">
 </head>
 <body>
     <div class="wrapper">
@@ -21,7 +21,7 @@
                         <span id="timer">10s</span>
                     </div>
                     <div class="question_image_contain" , dir="auto">
-                        <img class="question_img" src="./assets/images/c.jpg" alt="image">
+                        <img class="question_img" src="./images/c.jpg" alt="image">
                     </div>
                     <div class="score" id='score'>
                         <span>14</span>
@@ -33,24 +33,13 @@
                     <button class="answer_button3" role="button" id="buttonC" onclick="CheckAnswer(id)"> C </button>
                     <button class="answer_button4" role="button" id="buttonD" onclick="CheckAnswer(id)"> D </button>
                 </div>
-                <script src='./assets/js/practice_js.js'></script>
+                <script src='./js/practice_js.js'></script>
             </div>
         </div>
-        <footer>
-            <div class="footer-top">
-                <div class="container">
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="text-copyright">
-                        Nhóm 2 - D19 - Khoa Công nghệ thông tin - Học viện Công nghệ Bưu chính viễn thông
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <%@include file="includes/footer.jsp" %>
         <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     </div>
+    
 </body>
 
 </html>

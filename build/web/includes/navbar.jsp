@@ -1,7 +1,7 @@
 <%@page import="bean.User"%>
 <header class="header">
             <div class="header__logo">
-                <a href="#"><img src="./assets/images/logo.jpg" alt=""></a>
+                <a href="#"><img src="./images/logo.jpg" alt=""></a>
             </div>
             <div class="header__menu">
                 <ul class="header__list">
@@ -26,8 +26,8 @@
                             } else {
                 %>
                 <div class="header__right--btn">
-                                    <a href="logout"><button class="btn">Logout</Button></a>
-                                    <a href="/profile.jsp"><button class="btn">Profile</Button></a>
+                                <a href="logout"><button class="btn">Logout</Button></a>
+                                <a href="ProcessProfile"><button class="btn">Profile</Button></a>
                 </div>
                 <%
                             }

@@ -21,6 +21,18 @@
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>ProcessHomePage</servlet-name>
+        <servlet-class>controller.ProcessHomePage</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProcessProfile</servlet-name>
+        <servlet-class>controller.ProcessProfile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProcessImage</servlet-name>
+        <servlet-class>controller.ProcessImage</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -40,6 +52,18 @@
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcessHomePage</servlet-name>
+        <url-pattern>/ProcessHomePage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcessProfile</servlet-name>
+        <url-pattern>/ProcessProfile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcessImage</servlet-name>
+        <url-pattern>/ProcessImage</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

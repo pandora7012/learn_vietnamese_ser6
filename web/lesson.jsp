@@ -1,6 +1,6 @@
 <%@include file="includes/header.jsp" %>
 
-<link rel="stylesheet" href="./assets/css/lesson.css">
+<link rel="stylesheet" href="./css/lesson.css">
 </head>
 <body>
     <div class="wrapper">
@@ -66,7 +66,7 @@
                 </div>
             </div>
         </div>
-    <%@include file="includes/footer.jsp" %>>
+    <%@include file="includes/footer.jsp" %>
     <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 </body>
 </html>

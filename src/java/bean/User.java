@@ -6,33 +6,25 @@ import java.io.Serializable;
 public class User implements Serializable {
     
     private static final long serialVersionUID = 1L;
-    private int ID;
     private String username;
     private String password;
     private String email;
-    private String phone;
+    private int numStar;
+    private int numLession;
     private String full_name;
-    private byte[] img;
+    private String gender;
 
     public User() {
     }
 
-    public User(int ID, String username, String password, String email, String phone, String full_name, byte[] img) {
-        this.ID = ID;
+    public User(String username, String password, String email, int numStar, int numLession, String full_name, String gender) {
         this.username = username;
         this.password = password;
         this.email = email;
-        this.phone = phone;
+        this.numStar = numStar;
+        this.numLession = numLession;
         this.full_name = full_name;
-        this.img = img;
-    }
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
+        this.gender = gender;
     }
 
     public String getUsername() {
@@ -59,12 +51,20 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
+    public int getNumStar() {
+        return numStar;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setNumStar(int numStar) {
+        this.numStar = numStar;
+    }
+
+    public int getNumLession() {
+        return numLession;
+    }
+
+    public void setNumLession(int numLession) {
+        this.numLession = numLession;
     }
 
     public String getFull_name() {
@@ -75,12 +75,12 @@ public class User implements Serializable {
         this.full_name = full_name;
     }
 
-    public byte[] getImg() {
-        return img;
+    public String getGender() {
+        return gender;
     }
 
-    public void setImg(byte[] img) {
-        this.img = img;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     

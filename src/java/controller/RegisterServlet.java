@@ -9,6 +9,7 @@ import dao.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -48,22 +49,21 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
         String message = "";
         
         String full_name = request.getParameter("Full_name");
         String email = request.getParameter("Email");
         String username = request.getParameter("Username");
         String password = request.getParameter("password");
-        String confirm_password = request.getParameter("confirm_password");
-//        if(password != confirm_password){
-//            response.sendRedirect("/register.jsp");
-//        }
+        
         UserDAO ud = new UserDAO();
         User user = new User();
         user.setFull_name(full_name);
         user.setEmail(email);
         user.setUsername(username);
         user.setPassword(password);
+        
         String url = "/register.jsp";
         if(ud.checkExist(username)){
             message = "username already exists!";

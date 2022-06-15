@@ -1,5 +1,5 @@
 <%@include file="includes/header.jsp" %>
-<link rel="stylesheet" href="./assets/css/style.css">
+<link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <%@include file="includes/navbar.jsp" %>
