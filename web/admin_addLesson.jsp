@@ -22,7 +22,7 @@
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="d-flex align-items-center list-tools p-2 active-admin-tools">
                             <i class="fa-solid fa-book admin-tools-icon" style="width: 20px;"></i>
-                            <a href="admin_addLession.jsp" class="nav-link link-dark" aria-current="page">Thêm bài học</a>
+                            <a href="admin_addLesson.jsp" class="nav-link link-dark" aria-current="page">Thêm bài học</a>
                         </li>
                         <li class="d-flex align-items-center list-tools p-2">
                             <i class="fa-solid fa-users admin-tools-icon" style="width: 20px;"></i>
