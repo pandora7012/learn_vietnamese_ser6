@@ -36,7 +36,7 @@ public class UserDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return user;
+       return user;
     }
     public boolean addNewUser(User user){
         boolean set = false;

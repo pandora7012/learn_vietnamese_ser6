@@ -70,24 +70,24 @@
                     </div>
                     <!-- for của label === id của input ngay dưới nó nên tự điền nhé -->
                     <div class="mb-3 w-75 ps-4">
-                        <label for="" class="form-label font-">Hình chữ viết hoa</label>
-                        <input type="file" class="form-control" id="name-lesson">
+                        <label for="write-upper" class="form-label font-">Hình chữ viết hoa</label>
+                        <input type="file" class="form-control" id="write-upper">
                     </div>
                     <div class="mb-3 w-75 ps-4">
-                        <label for="" class="form-label font-">Hình chữ viết thường</label>
-                        <input type="file" class="form-control" id="">
+                        <label for="write-lower" class="form-label font-">Hình chữ viết thường</label>
+                        <input type="file" class="form-control" id="write-lower">
                     </div>
                     <div class="mb-3 w-75 ps-4">
-                        <label for="" class="form-label font-">Hình chữ in hoa</label>
-                        <input type="file" class="form-control" id="">
+                        <label for="print-upper" class="form-label font-">Hình chữ in hoa</label>
+                        <input type="file" class="form-control" id="print-upper">
                     </div>
                     <div class="mb-3 w-75 ps-4">
-                        <label for="" class="form-label font-">Hình chữ in thường</label>
-                        <input type="file" class="form-control" id="">
+                        <label for="print-lower" class="form-label font-">Hình chữ in thường</label>
+                        <input type="file" class="form-control" id="print-lower">
                     </div>
                     <div class="mb-3 w-75 ps-4">
-                        <label for="" class="form-label font-">Âm thanh</label>
-                        <input type="file" class="form-control" id="" placeholder="Nhập tên bài học">
+                        <label for="sound-lesson" class="form-label font-">Âm thanh</label>
+                        <input type="file" class="form-control" id="sound-lesson" placeholder="Nhập tên bài học">
                     </div>
                 </div>
 
@@ -96,12 +96,12 @@
                     <h5 class="card-title">Thêm từ <i class="fa-brands fa-amilia admin-tools-icon" style="width: 20px;"></i></h5>
                     <!-- for của label === id của input ngay dưới nó nên tự điền nhé -->
                     <div class="mb-3 w-75 ps-4">
-                        <label for="" class="form-label font-">Hình ảnh</label>
-                        <input type="file" class="form-control" id="">
+                        <label for="png-word" class="form-label font-">Hình ảnh</label>
+                        <input type="file" class="form-control" id="png-word">
                     </div>
                     <div class="mb-3 w-75 ps-4">
-                        <label for="" class="form-label font-">Âm thanh</label>
-                        <input type="file" class="form-control" id="">
+                        <label for="sound-word" class="form-label font-">Âm thanh</label>
+                        <input type="file" class="form-control" id="sound-word">
                     </div>
                 </div>
 
@@ -110,21 +110,38 @@
                     <h5 class="card-title">Thêm câu hỏi <i class="fa-solid fa-question admin-tools-icon" style="width: 20px;"></i></h5>
                     <!-- for của label === id của input ngay dưới nó nên tự điền nhé -->
                     <div class="mb-3 w-75 ps-4">
-                        <label for="" class="form-label font-">Câu hỏi</label>
-                        <input type="text" class="form-control" id="">
+                        <label for="question" class="form-label font-">Câu hỏi</label>
+                        <input type="text" class="form-control" id="question">
                     </div>
                     <div class="mb-3 w-75 ps-4">
-                        <label for="" class="form-label font-">Đáp án</label>
-                        <input type="text" class="form-control" id="">
+                        <label for="ans1" class="form-label font-">Đáp án 1</label>
+                        <input type="text" class="form-control" id="ans1">
                     </div>
+
+                    <div class="mb-3 w-75 ps-4">
+                        <label for="ans2" class="form-label font-">Đáp án 2</label>
+                        <input type="text" class="form-control" id="ans2">
+                    </div>
+
+                    <div class="mb-3 w-75 ps-4">
+                        <label for="ans3" class="form-label font-">Đáp án 3</label>
+                        <input type="text" class="form-control" id="ans3">
+                    </div>
+
+                    <div class="mb-3 w-75 ps-4">
+                        <label for= "ans4" class="form-label font-">Đáp án 4</label>
+                        <input type="text" class="form-control" id="ans4">
+                    </div>
+
+
                     <div class="w-75 ps-4 d-flex justify-content-between">
                         <div class="">
-                            <label for="" class="form-label font-">Hình ảnh (Tuỳ chọn)</label>
-                            <input type="file" class="form-control" id="">
+                            <label for="pnj-question" class="form-label font-">Hình ảnh (Tuỳ chọn)</label>
+                            <input type="file" class="form-control" id="pnj-question">
                         </div>
                         <div class="">
-                            <label for="" class="form-label font-">Âm thanh (Tuỳ chọn)</label>
-                            <input type="file" class="form-control" id="">
+                            <label for="sound-question" class="form-label font-">Âm thanh (Tuỳ chọn)</label>
+                            <input type="file" class="form-control" id="sound-question">
                         </div>
                     </div>
                     <button type="button" class="btn btn-info ms-4 mt-4" style="width: 80px";>Save</button>

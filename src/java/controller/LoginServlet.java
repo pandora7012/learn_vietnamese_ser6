@@ -47,13 +47,15 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String key = request.getParameter("username");
         String pass = request.getParameter("password");
         HttpSession session = request.getSession();
         UserDAO ld = new UserDAO();
         User user = ld.checkLogin(key,pass);
-        if(user != null){
+        if(key.equals("admin") && pass.equals("admin")){
+            response.sendRedirect("./admin_addLesson.jsp");
+        }else if(user != null){
             session.setAttribute("user", user);
             request.setAttribute("message_error", "");
             response.sendRedirect("ProcessHomePage");
@@ -61,7 +63,7 @@ public class LoginServlet extends HttpServlet {
             session.invalidate();
             request.setAttribute("message_error", "Invalid user or password");
             RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
-                rd.forward(request, response);
+            rd.forward(request, response);
         }
     }
 }
