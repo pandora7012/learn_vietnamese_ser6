@@ -126,17 +126,22 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <%
-                            User user = (User)session.getAttribute("user");
+                                User user = (User)session.getAttribute("user");
                             %>
                             <div class="card">
                                 <div class="card-header bg-transparent text-center">
-<!--                                    <img class="profile_img"
+                                    <img class="profile_img"
                                         src="https://motgame.vn/wp-content/uploads/2022/05/anya-spy-x-family-meme-6.jpg"
-                                        alt="student dp">-->
+                                        alt="student dp">
+                                    <%
+                                        
+                                    %>
                                     <img class="profile_img"
                                         src="${pageContext.servletContext.contextPath}/ProcessImage?username=${sessionScope.user.username}"
                                         alt="student dp">
+                                           
                                     <h3><%= user.getFull_name() %></h3>
+                                    <h3>đâsd</h3>
                                     <!--<input type="file" name="name">-->
                                 </div>
                                 <!-- <div class="card-body">

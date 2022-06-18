@@ -24,6 +24,8 @@ public class UserDAO {
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
+                if(rs.getBlob("avt") == null){
+                }
                 user = new User(rs.getString("username"),
                                 rs.getString("t_password"),
                                 rs.getString("email"),
@@ -47,7 +49,7 @@ public class UserDAO {
             pt.setString(1, user.getFull_name());
             pt.setString(2, user.getUsername());
             pt.setString(3, user.getPassword());
-            InputStream in = new FileInputStream("/web/assets/images/user_1.png");
+            InputStream in = new FileInputStream("E:\\University\\Năm 3\\Web Programing\\BTL_Project\\BTL\\learn_vietnamese_ser6\\web\\images\\user_2.png");
             pt.setBlob(4, in);
             pt.setInt(5, 0);
             pt.setInt(6, 0);
