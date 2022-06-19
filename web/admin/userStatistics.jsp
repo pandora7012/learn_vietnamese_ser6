@@ -27,7 +27,7 @@
                         </li>
                         <li class="d-flex align-items-center list-tools p-2 active-admin-tools">
                             <i class="fa-solid fa-users admin-tools-icon" style="width: 20px;"></i>
-                            <a href="UserStatistics " class="nav-link link-dark">Thống kê người dùng</a>
+                            <a href="UserStatistics" class="nav-link link-dark">Thống kê người dùng</a>
                         </li>
                         <li class="d-flex align-items-center list-tools p-2">
                             <i class="fa-solid fa-book-open admin-tools-icon" style="width: 20px;"></i>
@@ -69,30 +69,28 @@
                         <th scope="col">Họ và tên</th>
                         <th scope="col">Ảnh</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Địa chỉ</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Number Lesson Completed</th>
+                        <th scope="col">Star Number</th>
                         <th scope="col"></th>
                       </tr>
                     </thead>
                     <tbody>
-                      <%
-                        ArrayList<User> list = new ArrayList<User>();
-                        if(request.getSession(false) == null){
-                            out.print(request.getAttribute("listUsers"));
-                        }else{
-                          }
-                           %>
-                       <%= request.getAttribute("listUser") %>
-                       <%
-
-                      %>
+                        <%
+                        ArrayList<User> list = (ArrayList<User>)request.getAttribute("listUser");
+                        int i = 1;
+                        for(User u:list){
+                        %>
                       <tr>
-                        <th scope="row">1</th>
-                        <td>marrk</td>
+                        <th scope="row"><%= i %></th>
+                        <td><%= u.getFull_name() %></td>
                         <td>
                             <img src="https://s120-ava-talk.zadn.vn/8/1/9/6/39/120/d8b1bf93072087e093ed8d3c702b3dd6.jpg" alt="mdo" width="50" height="50" class="rounded-circle">
                         </td>
-                        <td>@mdo</td>
-                        <td>HN</td>
+                        <td><%= u.getEmail() %></td>
+                        <td><%= u.getGender() %></td>
+                        <td><%= u.getNumLesson()%></td>
+                        <td><%= u.getNumStar()%></td>
                         <td>
                             <div class="w-100 h-100 d-flex align-items-center justify-content-center"> 
                                 <div class="icons-table">
@@ -101,7 +99,10 @@
                             </div>
                         </td>
                       </tr>
-
+                        <%
+                            i++;
+                           }
+                        %>
                       <!-- <tr>
                         <th scope="row">1</th>
                         <td>Mark</td>

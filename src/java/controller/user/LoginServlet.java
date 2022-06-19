@@ -54,7 +54,7 @@ public class LoginServlet extends HttpServlet {
         UserDAO ld = new UserDAO();
         User user = ld.checkLogin(key,pass);
         if(key.equals("admin") && pass.equals("admin")){
-            response.sendRedirect("/admin/addLesson.jsp");
+            response.sendRedirect("/addLesson.jsp");
         }else if(user != null){
             session.setAttribute("user", user);
             request.setAttribute("message_error", "");

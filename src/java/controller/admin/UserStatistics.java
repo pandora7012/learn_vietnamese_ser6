@@ -33,12 +33,11 @@ public class UserStatistics extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
         AdminDAO ad = new AdminDAO();
         ArrayList<User> list = ad.getListUser();
-        HttpSession session = request.getSession();
-        session.setAttribute("listUser", list);
-        session.setAttribute("listUsers", "hahaha");
-        request.setAttribute("listUser", "asasasasa");
+        // HttpSession session = request.getSession();
+        request.setAttribute("listUser", list);
         RequestDispatcher rd = request.getRequestDispatcher("admin/userStatistics.jsp");
             rd.forward(request, response);
     }

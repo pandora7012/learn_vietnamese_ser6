@@ -10,19 +10,19 @@ public class User implements Serializable {
     private String password;
     private String email;
     private int numStar;
-    private int numLession;
+    private int numLesson;
     private String full_name;
     private String gender;
 
     public User() {
     }
 
-    public User(String username, String password, String email, int numStar, int numLession, String full_name, String gender) {
+    public User(String username, String password, String email, int numStar, int numLesson, String full_name, String gender) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.numStar = numStar;
-        this.numLession = numLession;
+        this.numLesson = numLesson;
         this.full_name = full_name;
         this.gender = gender;
     }
@@ -59,12 +59,12 @@ public class User implements Serializable {
         this.numStar = numStar;
     }
 
-    public int getNumLession() {
-        return numLession;
+    public int getNumLesson() {
+        return numLesson;
     }
 
-    public void setNumLession(int numLession) {
-        this.numLession = numLession;
+    public void setNumLesson(int numLesson) {
+        this.numLesson = numLesson;
     }
 
     public String getFull_name() {

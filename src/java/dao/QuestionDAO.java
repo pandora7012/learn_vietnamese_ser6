@@ -10,7 +10,7 @@ import java.sql.PreparedStatement;
 public class QuestionDAO {
     private Connection conn = (Connection) DBConnection.getConnection();
 
-    public void addLesson(Question ques){
+    public void addQuestion(Question ques){
 
         try
         {

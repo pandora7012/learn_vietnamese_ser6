@@ -4,7 +4,14 @@
  */
 package controller.user;
 
+import bean.Lesson;
+import bean.Question;
+import bean.Word;
+import dao.LessonDAO;
+import dao.QuestionDAO;
+import dao.WordDAO;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Pan
+ * @author Quach Dinh Kien
  */
 public class LessonServlet extends HttpServlet {
 
@@ -30,22 +37,21 @@ public class LessonServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-
         // add lesson
+
+        String idLesson = request.getParameter("id_lesson");
+
         String tenBaiHoc = request.getParameter("name_lesson");
-        // String chuVietHoa = request.getParameter("write_upper");
-        // String chuVietThuong = request.getParameter("write_lower");
-        // String chuInHoa = request.getParameter("print_upper");
-        // String chuInThuong = request.getParameter("print_lower");
-        // String amThanh = request.getParameter("name_user_group");
+        String chuVietHoa = request.getParameter("write_upper");
+        String chuVietThuong = request.getParameter("write_lower");
+        String chuInHoa = request.getParameter("print_upper");
+        String chuInThuong = request.getParameter("print_lower");
+        String amThanh = request.getParameter("sound_lesson");
 
-
-
-
-        //add word
-
-
-
+        // add word 
+        String contentWord = request.getParameter("content_word");
+        String soundWord = request.getParameter("sound_word");
+        String imgWord = request.getParameter("img_word");
 
         // add question
         String question = request.getParameter("question");
@@ -54,29 +60,62 @@ public class LessonServlet extends HttpServlet {
         String ans3 = request.getParameter("ans3");
         String ans4 = request.getParameter("ans4");
 
+        LessonDAO lessonDao = new LessonDAO();
+        QuestionDAO questionDao = new QuestionDAO();
+        WordDAO wordDao = new WordDAO();
 
+        Lesson ls = new Lesson();
+        Question qs = new Question();
+        Word word = new Word();
+        request.setAttribute("");
+        int ID_Increment = lessonDao.GetLastLessonID();
 
+        if (1==1) {
+            ls.setLessonName(tenBaiHoc);
+            ls.setWriteCa(chuVietHoa);
+            ls.setWriteNo(chuVietThuong);
+            ls.setWriteCa(chuInHoa);
+            ls.setWriteNo(chuInThuong);
+            ls.setSound(amThanh);
 
+            word.setId(ID_Increment+1);
+            word.setImg(imgWord);
+            word.setSound(soundWord);
+            word.setWord(contentWord);
 
-        String url = "";
-        if (tenBaiHoc.equals("")) {
-            url = "index.jsp";
-        } else {
-            url = "lesson.jsp";
+            qs.setQuestion(question);
+            qs.setAns1(ans1);
+            qs.setAns2(ans2);
+            qs.setAns3(ans3);
+            qs.setAns4(ans4);
+            qs.setIdLession(ID_Increment+1);
+            
+            lessonDao.addLesson(ls);
+            wordDao.addWord(word);
+            questionDao.addQuestion(qs);
+
         }
+        else {
+            int idLesson_ = Integer.parseInt(idLesson);
+            word.setId(idLesson_);
+            word.setImg(imgWord);
+            word.setSound(soundWord);
+            word.setWord(contentWord);
 
+            qs.setQuestion(question);
+            qs.setAns1(ans1);
+            qs.setAns2(ans2);
+            qs.setAns3(ans3);
+            qs.setAns4(ans4);
+            qs.setIdLession(idLesson_);
+
+            wordDao.addWord(word);
+            questionDao.addQuestion(qs);
+        }
         request.setAttribute("name_lessons", tenBaiHoc);
-        RequestDispatcher rd = request.getRequestDispatcher("/admin_addLesson.jsp");
-            rd.forward(request, response);
-
+        RequestDispatcher rd = request.getRequestDispatcher("/addLesson.jsp");
+        rd.forward(request, response);
     }
-
-    private void getLesson(){
-
-    }
-
-
-
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

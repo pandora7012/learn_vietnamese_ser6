@@ -13,16 +13,17 @@ import java.io.Serializable;
 public class Lesson implements Serializable
 {
     private int id ;
-
+    private String lessonName;
     private String writeCa;
     private String writeNo;
     private String printCa;
     private String printNo;
     private String sound;
 
-    public Lesson(int id, String writeCa, String writeNo, String printCa, String printNo, String sound) {
+    public Lesson(int id , String lessonName, String writeCa, String writeNo, String printCa, String printNo, String sound) {
         this.id = id;
         this.writeCa = writeCa;
+        this.lessonName = lessonName;
         this.writeNo = writeNo;
         this.printCa = printCa;
         this.printNo = printNo;
@@ -81,6 +82,12 @@ public class Lesson implements Serializable
     }
     
     
-    
+    public String getLessonName() {
+        return lessonName;
+    }
+
+    public void setLessonName(String lessonName) {
+        this.lessonName = lessonName;
+    }
 
 }
