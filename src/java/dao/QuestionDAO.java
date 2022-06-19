@@ -10,8 +10,8 @@ import java.sql.PreparedStatement;
 public class QuestionDAO {
     private Connection conn = (Connection) DBConnection.getConnection();
 
-    public void addQuestion(Question ques){
-
+    public boolean addQuestion(Question ques){
+        boolean result = false;
         try
         {
             String query = "INSERT INTO tbl_question (idquestion, question, ans1, ans2, ans3, ans4, numStar, idlession) VALUES (?,?,?,?,?,?,?,?)";
@@ -24,11 +24,12 @@ public class QuestionDAO {
             pt.setInt(6, ques.getNumStar());
             pt.setInt(7, ques.getIdLession());
             pt.execute();
+            result = true ;
         }
         catch(Exception e){
             e.printStackTrace();
         }
-
+        return result;
 
     }
 

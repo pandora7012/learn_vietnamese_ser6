@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="bean.Lesson"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,16 +64,13 @@
             </header>
             <div class="h-100 pt-3 px-3 overflow-auto">
                 <!-- Thêm bài học mới -->
-                <form action="LessonServlet" method="get" id="addForm">
+                <form action="ProcessAddLesson" method="get" id="addForm">
                     <div class="d-flex flex-column mt-3">
                         <h5 class="card-title">Thêm bài học <i class="fa-solid fa-book admin-tools-icon" style="width: 20px;"></i></h5>
-    
-                        <div class="my-3 w-75 ps-4">
+                        <!-- <div class="my-3 w-75 ps-4">
                             <label for="id-lesson" class="form-label font-">ID bài học muốn thêm thông tin</label>
                             <input type="text" class="form-control" id="id-lesson" placeholder="Nhập ID bài học"  name = "id_lesson">
-                        </div>
-    
-    
+                        </div>-->
                         <div class="my-3 w-75 ps-4">
                             <label for="name-lesson" class="form-label font-">Tên bài học</label>
                             <input type="text" class="form-control" id="name-lesson" placeholder="Nhập tên bài học" name = "name_lesson">
@@ -98,8 +97,23 @@
                             <input type="file" class="form-control" id="sound-lesson"  name = "sound_lesson">
                         </div>
                     </div>
-    
+                    <div class="message"><%= request.getAttribute("message") %></div>
+                    <button type="submit" class="btn btn-info ms-4 mt-4" style="width: 80px";>Save</button>
                     <!-- Thêm từ mới -->
+                </form>
+
+                <form action="ProcessAddQuestionWord" method="get">
+                    <select class="form-select mt-3 ms-4" id="select-sub" name = "select_sub"  style="width: 15%">;
+                        <option selected value="none">Lựa chọn bài học</option>
+                        <%
+                            ArrayList<Lesson> list = (ArrayList<Lesson>)request.getAttribute("listLesson");
+                            for(Lesson l:list){
+                        %>
+                            <option value="<%= l.getId() %>"><%= l.getLessonName() %></option>
+                        <%
+                            }
+                        %>
+                    </select>
                     <div class="d-flex flex-column mt-3">
                         <h5 class="card-title">Thêm từ <i class="fa-brands fa-amilia admin-tools-icon" style="width: 20px;"></i></h5>
                         <!-- for của label === id của input ngay dưới nó nên tự điền nhé -->
