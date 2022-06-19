@@ -45,7 +45,7 @@ public class LessonDAO {
         boolean ifExist = false;
         try {
             String sql = "Select * from tbl_lesson where id = ? ";
-            PreparedStatement ps = conn.prepareStatement(sql);
+            PreparedStatement ps = conn.prepareStatement(sql); //adasds
             ps.setInt(1, id);
 
             ResultSet rs = ps.executeQuery();
