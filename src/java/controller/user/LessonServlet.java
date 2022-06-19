@@ -2,22 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller;
+package controller.user;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Quach Dinh Kien
+ * @author Pan
  */
-public class ProcessHomePage extends HttpServlet {
+public class LessonServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,16 +29,54 @@ public class ProcessHomePage extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        HttpSession session = request.getSession();
-        if(session.getAttribute("user") != null){
-//            RequestDispatcher dis = request.getRequestDispatcher("WEB-INF/index.jsp");
-            RequestDispatcher dis = request.getRequestDispatcher("/index.jsp");
-            dis.forward(request, response);
-        }else{
-            response.sendRedirect("/login.jsp");
+
+
+        // add lesson
+        String tenBaiHoc = request.getParameter("name_lesson");
+        // String chuVietHoa = request.getParameter("write_upper");
+        // String chuVietThuong = request.getParameter("write_lower");
+        // String chuInHoa = request.getParameter("print_upper");
+        // String chuInThuong = request.getParameter("print_lower");
+        // String amThanh = request.getParameter("name_user_group");
+
+
+
+
+        //add word
+
+
+
+
+        // add question
+        String question = request.getParameter("question");
+        String ans1 = request.getParameter("ans1");
+        String ans2 = request.getParameter("ans2");
+        String ans3 = request.getParameter("ans3");
+        String ans4 = request.getParameter("ans4");
+
+
+
+
+
+        String url = "";
+        if (tenBaiHoc.equals("")) {
+            url = "index.jsp";
+        } else {
+            url = "lesson.jsp";
         }
+
+        request.setAttribute("name_lessons", tenBaiHoc);
+        RequestDispatcher rd = request.getRequestDispatcher("/admin_addLesson.jsp");
+            rd.forward(request, response);
+
     }
+
+    private void getLesson(){
+
+    }
+
+
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

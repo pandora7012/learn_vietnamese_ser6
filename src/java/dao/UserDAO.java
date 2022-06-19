@@ -30,7 +30,7 @@ public class UserDAO {
                                 rs.getString("t_password"),
                                 rs.getString("email"),
                                 rs.getInt("numStar"),
-                                rs.getInt("numLession"),
+                                rs.getInt("numLesson"),
                                 rs.getString("fullname"),
                                 rs.getString("gender")
                 );
@@ -44,7 +44,7 @@ public class UserDAO {
         boolean set = false;
         
         try{
-            String query = "insert into tbl_user(fullname, username, t_password, avt, numStar, numLession, email) values(?,?,?,?,?,?,?)";
+            String query = "insert into tbl_user(fullname, username, t_password, avt, numStar, numLesson, email) values(?,?,?,?,?,?,?)";
             PreparedStatement pt = this.conn.prepareStatement(query);
             pt.setString(1, user.getFull_name());
             pt.setString(2, user.getUsername());

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/admin_addLession.css">
+    <link rel="stylesheet" href="./css/addLession.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     
@@ -22,15 +22,15 @@
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="d-flex align-items-center list-tools p-2 active-admin-tools">
                             <i class="fa-solid fa-book admin-tools-icon" style="width: 20px;"></i>
-                            <a href="admin_addLesson.jsp" class="nav-link link-dark" aria-current="page">Thêm bài học</a>
+                            <a href="addLesson.jsp" class="nav-link link-dark" aria-current="page">Thêm bài học</a>
                         </li>
                         <li class="d-flex align-items-center list-tools p-2">
                             <i class="fa-solid fa-users admin-tools-icon" style="width: 20px;"></i>
-                            <a href="admin_users.jsp" class="nav-link link-dark">Thống kê người dùng</a>
+                            <a href="UserStatistics" class="nav-link link-dark">Thống kê người dùng</a>
                         </li>
                         <li class="d-flex align-items-center list-tools p-2">
                             <i class="fa-solid fa-book-open admin-tools-icon" style="width: 20px;"></i>
-                            <a href="admin_lessons.jsp" class="nav-link link-dark">Thống kê bài học</a>
+                            <a href="lessonStatistics.jsp" class="nav-link link-dark">Thống kê bài học</a>
                         </li>
                     </ul>
                 </div>

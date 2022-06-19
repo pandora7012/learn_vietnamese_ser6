@@ -36,10 +36,5 @@ public class LessonDAO {
         catch(Exception e){
             e.printStackTrace();
         }
-        
-        
     }
-            
-            
-          
 }

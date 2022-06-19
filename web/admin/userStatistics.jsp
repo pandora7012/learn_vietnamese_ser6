@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="bean.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,15 +23,15 @@
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="d-flex align-items-center list-tools p-2">
                             <i class="fa-solid fa-book admin-tools-icon" style="width: 20px;"></i>
-                            <a href="admin_addLesson.jsp" class="nav-link link-dark" aria-current="page">Thêm bài học</a>
+                            <a href="addLesson.jsp" class="nav-link link-dark" aria-current="page">Thêm bài học</a>
+                        </li>
+                        <li class="d-flex align-items-center list-tools p-2 active-admin-tools">
+                            <i class="fa-solid fa-users admin-tools-icon" style="width: 20px;"></i>
+                            <a href="UserStatistics " class="nav-link link-dark">Thống kê người dùng</a>
                         </li>
                         <li class="d-flex align-items-center list-tools p-2">
-                            <i class="fa-solid fa-users admin-tools-icon" style="width: 20px;"></i>
-                            <a href="admin_users.jsp" class="nav-link link-dark">Thống kê người dùng</a>
-                        </li>
-                        <li class="d-flex align-items-center list-tools p-2  active-admin-tools">
                             <i class="fa-solid fa-book-open admin-tools-icon" style="width: 20px;"></i>
-                            <a href="admin_lessons.jsp" class="nav-link link-dark">Thống kê bài học</a>
+                            <a href="lessonStatistics.jsp" class="nav-link link-dark">Thống kê bài học</a>
                         </li>
                     </ul>
                 </div>
@@ -64,23 +66,33 @@
                     <thead>
                       <tr>
                         <th scope="col">STT</th>
-                        <th scope="col">Bài học</th>
+                        <th scope="col">Họ và tên</th>
                         <th scope="col">Ảnh</th>
-                        <th scope="col">Số lượng truy cập</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Địa chỉ</th>
                         <th scope="col"></th>
                       </tr>
                     </thead>
                     <tbody>
+                      <%
+                        ArrayList<User> list = new ArrayList<User>();
+                        if(request.getSession(false) == null){
+                            out.print(request.getAttribute("listUsers"));
+                        }else{
+                          }
+                           %>
+                       <%= request.getAttribute("listUser") %>
+                       <%
 
-                      <!-- Hang   -->
+                      %>
                       <tr>
                         <th scope="row">1</th>
-                        <!-- Cac cot -->
-                        <td>Mark</td>
+                        <td>marrk</td>
                         <td>
-                            <img src="https://s120-ava-talk.zadn.vn/8/1/9/6/39/120/d8b1bf93072087e093ed8d3c702b3dd6.jpg" alt="mdo" width="100px">
+                            <img src="https://s120-ava-talk.zadn.vn/8/1/9/6/39/120/d8b1bf93072087e093ed8d3c702b3dd6.jpg" alt="mdo" width="50" height="50" class="rounded-circle">
                         </td>
-                        <td>123</td>
+                        <td>@mdo</td>
+                        <td>HN</td>
                         <td>
                             <div class="w-100 h-100 d-flex align-items-center justify-content-center"> 
                                 <div class="icons-table">
@@ -89,14 +101,33 @@
                             </div>
                         </td>
                       </tr>
-                      <!-- Hang -->
+
+                      <!-- <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>
+                            <img src="https://s120-ava-talk.zadn.vn/8/1/9/6/39/120/d8b1bf93072087e093ed8d3c702b3dd6.jpg" alt="mdo" width="50" height="50" class="rounded-circle">
+                        </td>
+                        <td>@mdo</td>
+                        <td>HN</td>
+                        <td>
+                            <div class="w-100 h-100 d-flex align-items-center justify-content-center"> 
+                                <div class="icons-table">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </div>
+                            </div>
+                        </td>
+                      </tr>
+
+
                       <tr>
                         <th scope="row">2</th>
                         <td>Jacob</td>
                         <td>
-                            <img src="https://s120-ava-talk.zadn.vn/8/1/9/6/39/120/d8b1bf93072087e093ed8d3c702b3dd6.jpg" alt="mdo" width="100px">
+                            <img src="https://s120-ava-talk.zadn.vn/8/1/9/6/39/120/d8b1bf93072087e093ed8d3c702b3dd6.jpg" alt="mdo" width="50" height="50" class="rounded-circle">
                         </td>
-                        <td>5454</td>
+                        <td>@fat</td>
+                        <td>HN</td>
                         <td>
                             <div class="w-100 h-100 d-flex align-items-center justify-content-center"> 
                                 <div class="icons-table">
@@ -105,14 +136,14 @@
                             </div>
                         </td>
                       </tr>
-                      <!-- Hang -->
                       <tr>
                         <th scope="row">3</th>
                         <td>Larry the Bird</td>
                         <td>
-                            <img src="https://s120-ava-talk.zadn.vn/8/1/9/6/39/120/d8b1bf93072087e093ed8d3c702b3dd6.jpg" alt="mdo" width="100px">
+                            <img src="https://s120-ava-talk.zadn.vn/8/1/9/6/39/120/d8b1bf93072087e093ed8d3c702b3dd6.jpg" alt="mdo" width="50" height="50" class="rounded-circle">
                         </td>
-                        <td>1</td>
+                        <td>@twitter</td>
+                        <td>HN</td>
                         <td>
                             <div class="w-100 h-100 d-flex align-items-center justify-content-center"> 
                                 <div class="icons-table">
@@ -120,7 +151,7 @@
                                 </div>
                             </div>
                         </td>
-                      </tr>
+                      </tr> -->
                     </tbody>
                   </table>
             </div>

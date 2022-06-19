@@ -2,19 +2,19 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>controller.LoginServlet</servlet-class>
+        <servlet-class>controller.user.LoginServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LogoutServlet</servlet-name>
-        <servlet-class>controller.LogoutServlet</servlet-class>
+        <servlet-class>controller.user.LogoutServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>controller.RegisterServlet</servlet-class>
+        <servlet-class>controller.user.RegisterServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Reset_passwordServlet</servlet-name>
-        <servlet-class>controller.Reset_passwordServlet</servlet-class>
+        <servlet-class>controller.user.Reset_passwordServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
@@ -23,15 +23,19 @@
     </servlet>
     <servlet>
         <servlet-name>ProcessHomePage</servlet-name>
-        <servlet-class>controller.ProcessHomePage</servlet-class>
+        <servlet-class>controller.user.ProcessHomePage</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ProcessProfile</servlet-name>
-        <servlet-class>controller.ProcessProfile</servlet-class>
+        <servlet-class>controller.user.ProcessProfile</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ProcessImage</servlet-name>
-        <servlet-class>controller.ProcessImage</servlet-class>
+        <servlet-class>controller.user.ProcessImage</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserStatistics</servlet-name>
+        <servlet-class>controller.admin.UserStatistics</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -64,6 +68,10 @@
     <servlet-mapping>
         <servlet-name>ProcessImage</servlet-name>
         <url-pattern>/ProcessImage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserStatistics</servlet-name>
+        <url-pattern>/UserStatistics</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

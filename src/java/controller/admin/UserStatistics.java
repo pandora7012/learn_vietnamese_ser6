@@ -2,24 +2,45 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller;
+package controller.admin;
 
 import bean.User;
-import dao.UserDAO;
+import dao.AdminDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-public class RegisterServlet extends HttpServlet {
+/**
+ *
+ * @author Quach Dinh Kien
+ */
+public class UserStatistics extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        response.setContentType("text/html;charset=UTF-8");
+        AdminDAO ad = new AdminDAO();
+        ArrayList<User> list = ad.getListUser();
+        HttpSession session = request.getSession();
+        session.setAttribute("listUser", list);
+        session.setAttribute("listUsers", "hahaha");
+        request.setAttribute("listUser", "asasasasa");
+        RequestDispatcher rd = request.getRequestDispatcher("admin/userStatistics.jsp");
+            rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -34,7 +55,7 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doPost(request, response);
+        processRequest(request, response);
     }
 
     /**
@@ -48,37 +69,17 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        response.setCharacterEncoding("UTF-8");
-        String message = "";
-        
-        String full_name = request.getParameter("Full_name");
-        String email = request.getParameter("Email");
-        String username = request.getParameter("Username");
-        String password = request.getParameter("password");
-        
-        UserDAO ud = new UserDAO();
-        User user = new User();
-        user.setFull_name(full_name);
-        user.setEmail(email);
-        user.setUsername(username);
-        user.setPassword(password);
-        
-        String url = "/register.jsp";
-        if(ud.checkExist(username)){
-            message = "username already exists!";
-            request.getSession().setAttribute("message_register", message);
-        }else{
-            if(ud.addNewUser(user)){
-                message = "Successful account registration!!!";
-                request.getSession().setAttribute("message_register", message);
-                url = "/login.jsp";
-            }else{
-                message = "account registration failed!!!";
-                request.getSession().setAttribute("message_register", message);
-                url ="/register.jsp";
-            }
-        }
-        response.sendRedirect(url);
+        processRequest(request, response);
     }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
 }
