@@ -86,7 +86,7 @@ public class UserDAO {
             if (rs.next()) {
                 return rs.getBytes("avt");
             }
-        } catch (Exception e) {
+        } catch (Exception e) {//asdsa
             e.printStackTrace();
         }
         return null;
