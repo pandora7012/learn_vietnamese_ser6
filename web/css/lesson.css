@@ -86,3 +86,46 @@
     display: flex;
     justify-content: center
 }
+.banner{
+    box-shadow: 5px 5px 10px black;
+    border-radius:3.5rem;
+    display: flex;
+    background-color: #235390;
+    background-image: url(https://d35aaqx5ub95lt.cloudfront.net/images/star-pattern.svg);
+    margin: 50px;
+    padding-left: 200px;
+    padding-bottom: 50px
+}
+
+.banner__content--text{
+    padding: 1rem;
+    color: #fff;
+    font-size:3rem;
+    font-weight: bold;
+}
+.main-content {
+    margin-left: 30px;
+    width: 100%;
+    height: 100%;
+    border-radius: 5rem;
+}
+
+.lesson-content2 {
+    font-size: 2.4rem;
+    border-radius: 5rem;
+    margin-top: 50px;
+    width: 100%;
+    background-color: #235390;
+    padding: 20px;
+    box-shadow: 5px 5px 10px black;
+    padding-left: 50px;
+}
+
+.list-img {
+    display: flex;
+    padding: 20px;
+}
+
+.fix {
+    padding: 20px;
+}
