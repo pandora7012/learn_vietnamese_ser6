@@ -1,5 +1,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="bean.User"%>
+<%@page import="dao.UserDAO"%>x
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,7 +86,27 @@
                         <th scope="row"><%= i %></th>
                         <td><%= u.getFull_name() %></td>
                         <td>
-                            <img src="https://s120-ava-talk.zadn.vn/8/1/9/6/39/120/d8b1bf93072087e093ed8d3c702b3dd6.jpg" alt="mdo" width="50" height="50" class="rounded-circle">
+                            <%
+                                User user = (User)session.getAttribute("user");
+                                UserDAO ud = new UserDAO();
+                                if(ud.getImageData(user.getUsername()) == null){
+                            %>
+                                    <img class="profile_img"
+                                        src="https://motgame.vn/wp-content/uploads/2022/05/anya-spy-x-family-meme-6.jpg"
+                                        alt="Avatar User"
+                                        width="50" height="50" class="rounded-circle">
+                            <%
+                                }else{
+                                    
+                            %>
+                                    <img class="profile_img"
+                                            src="${pageContext.servletContext.contextPath}/ProcessImage?username=${sessionScope.user.username}"
+                                            alt="Avatar User"
+                                            width="50" height="50" class="rounded-circle">
+                            <%
+                                }
+                            %>
+                            <!-- <img src="https://s120-ava-talk.zadn.vn/8/1/9/6/39/120/d8b1bf93072087e093ed8d3c702b3dd6.jpg" > -->
                         </td>
                         <td><%= u.getEmail() %></td>
                         <td><%= u.getGender() %></td>

@@ -6,9 +6,10 @@ import util.DBConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.resource.cci.ResultSet;
 
 public class QuestionDAO {
     private Connection conn = (Connection) DBConnection.getConnection();
@@ -35,16 +36,29 @@ public class QuestionDAO {
         return result;
     }
 
-    private ArrayList<Question> getQuestionViaLessonID(int id){
-        String sql = "Select * from tbl_user";
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-                
-        }
+    public ArrayList<Question> getQuestionListViaLessonID(int id){
+        ArrayList<Question> answerList = new ArrayList<Question>();
+        Question question = null;
+        try {
+            String sql = "Select * from tbl_question where idlesson = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                question = new Question(
+                    rs.getInt("idquestion"),
+                                rs.getString("question"),
+                                rs.getString("ans1"),
+                                rs.getString("ans2"),
+                                rs.getString("ans3"),
+                                rs.getString("ans4"),
+                                rs.getInt("numStar"),
+                                id
+                );
+                answerList.add(question);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-}
+        return answerList;
+    }}

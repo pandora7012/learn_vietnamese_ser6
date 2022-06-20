@@ -7,6 +7,7 @@ package dao;
 import bean.User;
 import java.io.*;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.DBConnection;
@@ -92,7 +93,29 @@ public class UserDAO {
         }
         return null;
     }
-    
+    public ArrayList<User> getListUser(){
+        User user = null;
+        ArrayList<User> list = new ArrayList<>();
+        try {
+            String sql = "Select * from tbl_user";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                user = new User(rs.getString("username"),
+                                rs.getString("t_password"),
+                                rs.getString("email"),
+                                rs.getInt("numStar"),
+                                rs.getInt("numLesson"),
+                                rs.getString("fullname"),
+                                rs.getString("gender")
+                );
+                list.add(user);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+       return list;
+    }
     public void removeUser(String username)
     {
         String sql = "select avt from tbl_user where username = ?";

@@ -6,6 +6,8 @@ import util.DBConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class WordDAO {
 
@@ -30,5 +32,29 @@ public class WordDAO {
         }
 
         return added ; 
-    }   
+    }  
+
+    public ArrayList<Word> getWordListViaLessonID(int id){
+        ArrayList<Word> answerList = new ArrayList<Word>();
+        Word question = null;
+        try {
+            String sql = "Select * from tbl_question where idlesson = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                question = new Word(
+                    rs.getInt("idword"),
+                    rs.getString("img"),
+                    rs.getString("sound"),
+                    rs.getString("word"),
+                    rs.getInt("idLesson")
+                );
+                answerList.add(question);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return answerList;
+    }
 }

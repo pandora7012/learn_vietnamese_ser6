@@ -105,14 +105,8 @@
                 <form action="ProcessAddQuestionWord" method="get">
                     <select class="form-select mt-3 ms-4" id="select-sub" name = "select_sub"  style="width: 15%">;
                         <option selected value="none">Lựa chọn bài học</option>
-                        <%
-                            ArrayList<Lesson> list = (ArrayList<Lesson>)request.getAttribute("listLesson");
-                            for(Lesson l:list){
-                        %>
-                            <option value="<%= l.getId() %>"><%= l.getLessonName() %></option>
-                        <%
-                            }
-                        %>
+
+                        
                     </select>
                     <div class="d-flex flex-column mt-3">
                         <h5 class="card-title">Thêm từ <i class="fa-brands fa-amilia admin-tools-icon" style="width: 20px;"></i></h5>

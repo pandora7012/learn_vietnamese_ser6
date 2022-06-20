@@ -17,9 +17,6 @@
                     <div class="question" dir="auto"><span class="question_content" id="question_content">Đây là câu hỏi !!! </span></div>
                 </div>
                 <div class="content-question">
-                    <div class="time-running">
-                        <span id="timer">10s</span>
-                    </div>
                     <div class="question_image_contain" , dir="auto">
                         <img class="question_img" src="./images/c.jpg" alt="image">
                     </div>

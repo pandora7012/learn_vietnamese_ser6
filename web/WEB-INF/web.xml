@@ -53,6 +53,10 @@
         <servlet-name>CheckAvatar</servlet-name>
         <servlet-class>controller.user.CheckAvatar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProcessArchivement</servlet-name>
+        <servlet-class>controller.user.ProcessArchivement</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -104,6 +108,10 @@
     <servlet-mapping>
         <servlet-name>CheckAvatar</servlet-name>
         <url-pattern>/CheckAvatar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcessArchivement</servlet-name>
+        <url-pattern>/ProcessArchivement</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

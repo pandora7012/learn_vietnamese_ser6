@@ -1,5 +1,4 @@
 var score = 0;
-var timer = 0;
 var textData
 const arrayQuestions = [ 
 ["Từ nào chứa chữ c?", "Bát đĩa" , "Hoa lá" , "Cỏ cây" , "Sấm sét" , "Cỏ cây"],
@@ -10,13 +9,7 @@ const arrayQuestions = [
 var currentQuestion;
 var textData;
 
-var run = setInterval(function () {
-    timer += 1
-    UpdateUI()
-}, 1000)
-
-StartTimer()
-
+StartPractice();
 
 function CorrectAnswerButtonClick() {
     score += 10;
@@ -25,8 +18,7 @@ function CorrectAnswerButtonClick() {
 }
 
 function IncorrectAnswerButtonClick() {
-    score = 0 ;
-    clearInterval(run)
+   // score = 0 ;
     UpdateUI()
 }
 
@@ -34,36 +26,27 @@ function CheckAnswer(buttonID){
     var answer = document.getElementById(buttonID).textContent;
     if(answer == currentQuestion[5]){
         CorrectAnswerButtonClick()
-        console.log("true")
     }
     else {
         IncorrectAnswerButtonClick();
-        console.log("false")
-        var answer = window.confirm("Kết thúc");
+        var answer = window.confirm("Kết thúc, bạn có muốn luyện tập lại ? ");
         if (answer) {
             location.reload();
         }
         else {
-            location.reload();
+            //location.reload();
+            window.location = "./index.jsp"
         }
     }
         
 }
 
-function StartTimer() {
+function StartPractice() {
     GetNewQuestions()
     UpdateUI()
 }
-
-function StopTimer() {
-    clearInterval(run)
-    
-
-}
-
 function UpdateUI() {
     document.getElementById('score').innerHTML = '' + score
-    document.getElementById('timer').innerHTML = '' + timer
 }
 
 

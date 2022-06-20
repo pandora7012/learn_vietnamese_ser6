@@ -12,6 +12,7 @@ import java.io.Serializable;
  */
 public class Question implements Serializable {
     
+    private int id; 
     private String question;
     private String ans1;
     private String ans2;
@@ -20,7 +21,8 @@ public class Question implements Serializable {
     private int numStar; 
     private int idLession; 
 
-    public Question(String question, String ans1, String ans2, String ans3, String ans4, int numStar, int idLession) {
+    public Question( int id , String question, String ans1, String ans2, String ans3, String ans4, int numStar, int idLession) {
+        this.id = id;
         this.question = question;
         this.ans1 = ans1;
         this.ans2 = ans2;
@@ -89,6 +91,12 @@ public class Question implements Serializable {
         this.idLession = idLession;
     }
     
-    
+    public int getID(){
+        return id;
+    }
+
+    public void setID(int id) {
+        this.id = id ;
+    }
     
 }

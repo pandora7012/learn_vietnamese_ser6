@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="includes/header.jsp" %>
 <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -11,10 +12,13 @@
                     <h3>Tên thành viên</h3>
                 </li>
                 <li>
-                    <h3>Số bài học</h3>
+                    <h3>Số điểm</h3>
                 </li>
             </ul>
         </div>
+        <% 
+            User user = (User)session.getAttribute("user");
+        %>
         <div class="detail-infor">
             <ul class="nav1">
                 <li class="user-infor top top1">
