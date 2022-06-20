@@ -66,15 +66,15 @@ public class RegisterServlet extends HttpServlet {
         
         String url = "/register.jsp";
         if(ud.checkExist(username)){
-            message = "username already exists!";
+            message = "username đã tồn tại! vui lòng chọn username khác";
             request.getSession().setAttribute("message_register", message);
         }else{
             if(ud.addNewUser(user)){
-                message = "Successful account registration!!!";
+                message = "Đăng ký tài khoản thành công!!!";
                 request.getSession().setAttribute("message_register", message);
                 url = "/login.jsp";
             }else{
-                message = "account registration failed!!!";
+                message = "Đăng ký tài khoản thất bại!!!";
                 request.getSession().setAttribute("message_register", message);
                 url ="/register.jsp";
             }

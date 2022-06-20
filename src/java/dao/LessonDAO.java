@@ -68,7 +68,6 @@ public class LessonDAO {
         }
         return lessonList;
     }
-
     public int GetIDViaName(String name) {
         int id = -1 ; 
          try{
