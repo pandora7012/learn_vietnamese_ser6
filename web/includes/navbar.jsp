@@ -18,17 +18,28 @@
                             if (session.getAttribute("user") == null) {
                 %>
                                 <div class="header__right--btn">
-                                        <a href="/login.jsp" ><button class="btn">Login</Button></a>
-                                        <a href="/register.jsp"><button class="btn">Signup</Button></a>
+                                        <a href="/login.jsp" ><button class="btn">Đăng nhập</Button></a>
+                                        <a href="/register.jsp"><button class="btn">Đăng ký</Button></a>
                                 </div>
                 <%
 //                                response.sendRedirect("/login.jsp");
                             } else {
                 %>
-                <div class="header__right--btn">
+                <!-- <div class="header__right--btn">
                                 <a href="logout"><button class="btn">Logout</Button></a>
                                 <a href="ProcessProfile"><button class="btn">Profile</Button></a>
-                </div>
+
+                </div> -->
+                    <div class="dropdown header__right--btn">
+                        <button class="avt1">
+                            <img id ="img_avt" src ="./images/user_1.png" style="border-radius:50% ;">
+                        </button>
+                            <div class="dropdown-content">
+                                <a href="ProcessProfile">Thông tin cá nhân</a>
+                                <a href="logout">Đăng xuất</a>
+                            </div>
+                    </div>
+            
                 <%
                             }
                         }else{
