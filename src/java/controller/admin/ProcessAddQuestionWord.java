@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.QuestionDAO;
+import dao.UserDAO;
 import dao.WordDAO;
 
 /**
@@ -47,7 +48,13 @@ public class ProcessAddQuestionWord extends HttpServlet {
 
         QuestionDAO questionDao = new QuestionDAO();
         WordDAO wordDao = new WordDAO();
+        // ArrayList<Question> list = questionDao.getListUser();
+        
+        // request.setAttribute("listUser", list);
+        // RequestDispatcher rd = request.getRequestDispatcher("admin/userStatistics.jsp");
+        //     rd.forward(request, response);
     }
+    // create function convert text-to-speech use google api
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

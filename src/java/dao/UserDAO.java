@@ -44,16 +44,17 @@ public class UserDAO {
         boolean set = false;
         
         try{
-            String query = "insert into tbl_user(fullname, username, t_password, avt, numStar, numLesson, email) values(?,?,?,?,?,?,?)";
+            String query = "insert into tbl_user(fullname, username, t_password, numStar, numLesson, email) values(?,?,?,?,?,?)";
             PreparedStatement pt = conn.prepareStatement(query);
             pt.setString(1, user.getFull_name());
             pt.setString(2, user.getUsername());
             pt.setString(3, user.getPassword());
-            InputStream in = new FileInputStream("E:\\University\\Năm 3\\Web Programing\\BTL_Project\\BTL\\learn_vietnamese_ser6\\web\\images\\user_2.png");
-            pt.setBlob(4, in);
+            // InputStream in = new FileInputStream("E:\\University\\Năm 3\\Web Programing\\BTL_Project\\BTL\\learn_vietnamese_ser6\\web\\images\\user_2.png");
+            // InputStream in = new FileInputStream("/learn_vietnamese_ser6/web/images/user_2.png");
+            // pt.setBlob(4, in);
+            pt.setInt(4, 0);
             pt.setInt(5, 0);
-            pt.setInt(6, 0);
-            pt.setString(7, user.getEmail());
+            pt.setString(6, user.getEmail());
             pt.execute();
             set = true;
             return set;

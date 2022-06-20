@@ -30,7 +30,6 @@ public class QuestionDAO {
             e.printStackTrace();
         }
         return result;
-
     }
 
 }

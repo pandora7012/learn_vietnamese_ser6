@@ -1,3 +1,4 @@
+<%@page import="dao.UserDAO"%>
 <%@include file="/includes/header.jsp" %>
 <%@page import="bean.User"%>
 <link rel="stylesheet" href="./assets/css/practice_st.css">
@@ -112,7 +113,6 @@
             background-color: greenyellow;
         }
     </style>
-    <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 </head>
 
 <body>
@@ -120,28 +120,33 @@
         <%@include file="/includes/navbar.jsp" %>
         <div class="yellow-bar"></div>
         <!-- Duy -->
+        <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
         <div class="lesson">
             <div class="profile">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-4">
+                             <div class="card">
+                                <div class="card-header bg-transparent text-center">
                             <%
                                 User user = (User)session.getAttribute("user");
+                                UserDAO ud = new UserDAO();
+                                if(ud.getImageData(user.getUsername()) == null){
                             %>
-                            <div class="card">
-                                <div class="card-header bg-transparent text-center">
                                     <img class="profile_img"
                                         src="https://motgame.vn/wp-content/uploads/2022/05/anya-spy-x-family-meme-6.jpg"
-                                        alt="student dp">
-                                    <%
-                                        
-                                    %>
+                                        alt="Avatar User">
+                            <%
+                                }else{
+                                    
+                            %>
                                     <img class="profile_img"
-                                        src="${pageContext.servletContext.contextPath}/ProcessImage?username=${sessionScope.user.username}"
-                                        alt="student dp">
-                                           
+                                            src="${pageContext.servletContext.contextPath}/ProcessImage?username=${sessionScope.user.username}"
+                                            alt="Avatar User">
+                            <%
+                                }
+                            %>
                                     <h3><%= user.getFull_name() %></h3>
-                                    <h3>đâsd</h3>
                                     <!--<input type="file" name="name">-->
                                 </div>
                                 <!-- <div class="card-body">
@@ -208,6 +213,7 @@
             </div>
         </div>
     </div>
+    
 </body>
 
 </html>

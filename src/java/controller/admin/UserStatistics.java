@@ -36,7 +36,7 @@ public class UserStatistics extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         AdminDAO ad = new AdminDAO();
         ArrayList<User> list = ad.getListUser();
-        // HttpSession session = request.getSession();
+        
         request.setAttribute("listUser", list);
         RequestDispatcher rd = request.getRequestDispatcher("admin/userStatistics.jsp");
             rd.forward(request, response);
