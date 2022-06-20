@@ -4,10 +4,15 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/E:/University/Năm%203/Web%20Programing/BTL_Project/BTL/learn_vietnamese_ser6/src/java/dao/UserDAO.java</file>
+            <file>file:/E:/University/Năm%203/Web%20Programing/BTL_Project/BTL/learn_vietnamese_ser6/web/admin/userStatistics.jsp</file>
             <file>file:/E:/University/Năm%203/Web%20Programing/BTL_Project/BTL/learn_vietnamese_ser6/src/java/controller/user/ProcessProfile.java</file>
             <file>file:/E:/University/Năm%203/Web%20Programing/BTL_Project/BTL/learn_vietnamese_ser6/src/java/controller/user/RegisterServlet.java</file>
+            <file>file:/E:/University/Năm%203/Web%20Programing/BTL_Project/BTL/learn_vietnamese_ser6/src/java/bean/User.java</file>
+            <file>file:/E:/University/Năm%203/Web%20Programing/BTL_Project/BTL/learn_vietnamese_ser6/src/java/controller/user/ProcessArchivement.java</file>
             <file>file:/E:/University/Năm%203/Web%20Programing/BTL_Project/BTL/learn_vietnamese_ser6/web/WEB-INF/profile.jsp</file>
             <file>file:/E:/University/Năm%203/Web%20Programing/BTL_Project/BTL/learn_vietnamese_ser6/web/archivement.jsp</file>
+            <file>file:/E:/University/Năm%203/Web%20Programing/BTL_Project/BTL/learn_vietnamese_ser6/web/includes/footer.jsp</file>
+            <file>file:/E:/University/Năm%203/Web%20Programing/BTL_Project/BTL/learn_vietnamese_ser6/src/java/dao/QuestionDAO.java</file>
         </group>
     </open-files>
 </project-private>

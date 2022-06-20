@@ -1,7 +1,6 @@
 <%@page import="dao.UserDAO"%>
 <%@include file="/includes/header.jsp" %>
 <%@page import="bean.User"%>
-<link rel="stylesheet" href="./assets/css/practice_st.css">
     <style>
         /* Duy */
         *{
@@ -134,7 +133,7 @@
                                 if(ud.getImageData(user.getUsername()) == null){
                             %>
                                     <img class="profile_img"
-                                        src="https://motgame.vn/wp-content/uploads/2022/05/anya-spy-x-family-meme-6.jpg"
+                                        src="./images/user_1.png"
                                         alt="Avatar User">
                             <%
                                 }else{

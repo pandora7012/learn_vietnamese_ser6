@@ -4,8 +4,12 @@
  */
 package controller.user;
 
+import bean.User;
+import dao.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +34,12 @@ public class ProcessArchivement extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
+        UserDAO ad = new UserDAO();
+        ArrayList<User> list = ad.getListUser();
+        
+        request.setAttribute("listUser", list);
+        RequestDispatcher dis = request.getRequestDispatcher("/archivement.jsp");
+        dis.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

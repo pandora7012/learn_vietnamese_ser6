@@ -2,6 +2,7 @@
 package bean;
 
 import java.io.Serializable;
+import java.util.Comparator;
 
 public class User implements Serializable {
     
@@ -83,5 +84,4 @@ public class User implements Serializable {
         this.gender = gender;
     }
 
-    
 }

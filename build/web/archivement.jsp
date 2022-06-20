@@ -1,4 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="java.util.Collections"%>
+<%@page import="java.util.Comparator"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="bean.User"%>
+<%@page import="dao.UserDAO"%>
 <%@include file="includes/header.jsp" %>
 <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -16,48 +21,48 @@
                 </li>
             </ul>
         </div>
-        <% 
-            User user = (User)session.getAttribute("user");
-        %>
+        
         <div class="detail-infor">
             <ul class="nav1">
+                <%
+                    ArrayList<User> list = (ArrayList<User>)request.getAttribute("listUser");
+
+                    Collections.sort(list, new Comparator<User>(){
+                      public int compare(User o1, User o2)
+                      {
+                         return o2.getNumStar() - o1.getNumStar();
+                      }
+                    });
+                    for(User u:list){
+                %>
                 <li class="user-infor top top1">
                     <div class="infor">
                         <div class="user-img">
                             <a class="link-user-img" href="#">
-                                <img src="./assets/images/user_1.png" style="width:50px;" alt="avt">
+                                 <%
+                                User user = (User)session.getAttribute("user");
+                                UserDAO ud = new UserDAO();
+                                if(ud.getImageData(u.getUsername()) == null){
+                            %>
+                                    <img src="./images/user_1.png" style="width:50px;" alt="avt">
+                            <%
+                                }else{
+                                    
+                            %>
+                                    <img src="${pageContext.servletContext.contextPath}/ProcessImage?username=<%= u.getUsername()%>" style="width:50px;" alt="avt">
+                            <%
+                                }
+                            %>
                             </a>
                         </div>
-                        <a class="link-user-name" href="#">Nguyễn Quỳnh Trang</a>
+                        <a class="link-user-name" href="#"><%= u.getFull_name() %></a>
                     </div>
-                    <div class="score">160</div>
+                    <div class="score"><%= u.getNumStar()%></div>
                 </li>
                 <hr>
-                <li class="user-infor top top2">
-                    <div class="infor">
-                        <div class="user-img">
-                            <a class="link-user-img" href="#">
-                                <img src="./assets/images/user_1.png" style="width:40px;" alt="avt">
-                            </a>
-                        </div>
-                        <a class="link-user-name" href="#">Phạm Thị Nga</a>
-                    </div>
-                    <div class="score">160</div>
-                </li>
-                <hr>
-
-                <li class="user-infor top top3">
-                    <div class="infor">
-                        <div class="user-img">
-                            <a class="link-user-img" href="#">
-                                <img src="./assets/images/user_1.png" style="width:30px;" alt="avt">
-                            </a>
-                        </div>
-                        <a class="link-user-name" href="#">Nguyễn Văn Lực</a>
-                    </div>
-                    <div class="score">160</div>
-                </li>
-                <hr>
+                <%
+                    }
+                %>
             </ul>
         </div>
 

@@ -8,7 +8,7 @@
                     <li class="header__list--item"><a href="/index.jsp" class="header__list--item--link">Trang chủ</a></li>
                     <li class="header__list--item"><a href="/learn.jsp" class="header__list--item--link">Học tập</a></li>
                     <li class="header__list--item"><a href="/practice.jsp" class="header__list--item--link">Luyện tập</a></li>
-                    <li class="header__list--item"><a href="/archivement.jsp" class="header__list--item--link">Thành tích</a></li>
+                    <li class="header__list--item"><a href="ProcessArchivement" class="header__list--item--link">Thành tích</a></li>
                 </ul>
             </div>
             <div class="header__right">

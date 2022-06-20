@@ -1,6 +1,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="bean.User"%>
-<%@page import="dao.UserDAO"%>x
+<%@page import="dao.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,10 +89,10 @@
                             <%
                                 User user = (User)session.getAttribute("user");
                                 UserDAO ud = new UserDAO();
-                                if(ud.getImageData(user.getUsername()) == null){
+                                if(ud.getImageData(u.getUsername()) == null){
                             %>
                                     <img class="profile_img"
-                                        src="https://motgame.vn/wp-content/uploads/2022/05/anya-spy-x-family-meme-6.jpg"
+                                        src="./images/user_1.png"
                                         alt="Avatar User"
                                         width="50" height="50" class="rounded-circle">
                             <%
@@ -100,7 +100,7 @@
                                     
                             %>
                                     <img class="profile_img"
-                                            src="${pageContext.servletContext.contextPath}/ProcessImage?username=${sessionScope.user.username}"
+                                            src="${pageContext.servletContext.contextPath}/ProcessImage?username=<%= u.getUsername() %>"
                                             alt="Avatar User"
                                             width="50" height="50" class="rounded-circle">
                             <%

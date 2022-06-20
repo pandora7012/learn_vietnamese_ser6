@@ -34,8 +34,6 @@ public class ProcessImage extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String username = request.getParameter("username");
         UserDAO ud = new UserDAO();
-        HttpSession session = request.getSession();
-        session.setAttribute("avatar", "True");
         byte[] content = ud.getImageData(username);
         response.setContentType("image/jpge");
         response.setContentLength(content.length);
