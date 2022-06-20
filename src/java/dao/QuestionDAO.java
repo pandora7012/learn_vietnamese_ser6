@@ -6,6 +6,9 @@ import util.DBConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
+
+import javax.resource.cci.ResultSet;
 
 public class QuestionDAO {
     private Connection conn = (Connection) DBConnection.getConnection();
@@ -30,6 +33,18 @@ public class QuestionDAO {
             e.printStackTrace();
         }
         return result;
+    }
+
+    private ArrayList<Question> getQuestionViaLessonID(int id){
+        String sql = "Select * from tbl_user";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+                
+        }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
