@@ -43,31 +43,7 @@ public class LessonDAO {
         }
         return flag;
     }
-//    public ArrayList<Lesson> getLessonList() {
-//        ArrayList<Lesson> lessonList = new ArrayList<Lesson>();
-//        Lesson lesson = null;
-//        try{
-//            String query = "Select * from tbl_lesson"; 
-//            PreparedStatement ps = conn.prepareStatement(query);
-//            ResultSet rs = ps.executeQuery();
-//            while (rs.next()){
-//                lesson = new Lesson(
-//                        rs.getInt("idlesson"),
-//                        rs.getString("name"),
-//                        rs.getString("writeCa"),
-//                        rs.getString("writeNo"),
-//                        rs.getString("printCa"),
-//                        rs.getString("printNo"),
-//                        rs.getString("sound")
-//                );
-//                lessonList.add(lesson);
-//            }
-//        }
-//        catch (SQLException ex) {
-//            Logger.getLogger(LessonDAO.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return lessonList;
-//    }
+
     public ArrayList<Lesson> getListLesson(){
         Lesson lesson = null;
         ArrayList<Lesson> list = new ArrayList<>();

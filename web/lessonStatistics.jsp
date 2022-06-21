@@ -1,10 +1,3 @@
-<%@page import="dao.QuestionDAO"%>
-<%@page import="bean.Question"%>
-<%@page import="dao.WordDAO"%>
-<%@page import="bean.Word"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="bean.Lesson"%>
-<%@page import="dao.LessonDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
   <!DOCTYPE html>
   <html lang="en">
@@ -31,7 +24,7 @@
             <ul class="nav nav-pills flex-column mb-auto">
               <li class="d-flex align-items-center list-tools p-2">
                 <i class="fa-solid fa-book admin-tools-icon" style="width: 20px;"></i>
-                <a href="/addLesson.jsp" class="nav-link link-dark" aria-current="page">Thêm bài học</a>
+                <a href="addLesson.jsp" class="nav-link link-dark" aria-current="page">Thêm bài học</a>
               </li>
               <li class="d-flex align-items-center list-tools p-2">
                 <i class="fa-solid fa-users admin-tools-icon" style="width: 20px;"></i>
@@ -39,7 +32,7 @@
               </li>
               <li class="d-flex align-items-center list-tools p-2  active-admin-tools">
                 <i class="fa-solid fa-book-open admin-tools-icon" style="width: 20px;"></i>
-                <a href="LessonStatistics" class="nav-link link-dark">Thống kê bài học</a>
+                <a href="lessonStatistics.jsp" class="nav-link link-dark">Thống kê bài học</a>
               </li>
             </ul>
           </div>
@@ -57,7 +50,7 @@
               <div class="dropdown text-end">
                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
                   data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="./images/user_1.png" alt="mdo"
+                  <img src="https://s120-ava-talk.zadn.vn/8/1/9/6/39/120/d8b1bf93072087e093ed8d3c702b3dd6.jpg" alt="mdo"
                     width="32" height="32" class="rounded-circle">
                 </a>
                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
@@ -67,7 +60,7 @@
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item" href="logout">Sign out</a></li>
+                  <li><a class="dropdown-item" href="#">Sign out</a></li>
                 </ul>
               </div>
             </div>
@@ -86,10 +79,12 @@
             </thead>
             <tbody>
 
-              <% ArrayList<Lesson> list = (ArrayList<Lesson>) request.getAttribute("listLesson");
+              <% ArrayList<Lesson> list =
+                (ArrayList<Lesson>) request.getAttribute("listLesson");
                   int i = 1;
                   for(Lesson u : list)
                   {
+
                   %>
                   <!-- Hang   -->
                   <tr>
@@ -122,10 +117,7 @@
                       </div>
                     </td>
                   </tr>
-                  <%
-                            i++;
-                           }
-                        %>
+                  <% i++; } %>
             </tbody>
           </table>
         </div>

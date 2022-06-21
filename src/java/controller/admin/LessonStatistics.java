@@ -41,10 +41,7 @@ public class LessonStatistics extends HttpServlet {
         LessonDAO ad = new LessonDAO();
         ArrayList<Lesson> list = ad.getListLesson();
         HttpSession session = request.getSession();
-        list.add(new Lesson(0, "haha", "hah", "hahahaa", "asda", "AD", "ASDSA"));
-        session.setAttribute("listLesson", list);
         request.setAttribute("listLesson", list);
-        request.setAttribute("test", "hahah");
         RequestDispatcher rd = request.getRequestDispatcher("admin/lessonStatistics.jsp");
             rd.forward(request, response);
         
