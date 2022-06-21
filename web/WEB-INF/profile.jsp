@@ -125,7 +125,7 @@
                          <div class="col-lg-8" id="display-infor">
                             <div class="card shadow-sm">
                                 <div class="card-header bg-transparent ">
-                                    <h3>Thông tin khách hàng</h3>
+                                    <h3>Thông tin cá nhân</h3>
                                 </div>
                                 <div class="card-body">
                                     <table class="table">
@@ -137,15 +137,15 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th width="30%">Sinh năm</th>
+                                            <th width="30%">Email</th>
                                             <td>
-                                                <!-- <input type="text"></input> -->2001
+                                                <%= user.getEmail()%>
                                             </td>
                                         </tr>
                                         <tr>
                                             <th width="30%">Giới tính</th>
                                             <td>
-                                               <%= user.getGender()%>
+                                               <%= user.getGender() %>
                                             </td>
                                         </tr>
                                         <tr>
@@ -172,41 +172,47 @@
                             <div class="col-lg-8" id="edit-infor" style="display: none">
                                 <div class="card shadow-sm mau">
                                     <div class="card-header bg-transparent">
-                                        <h3>Thông tin khách hàng</h3>
+                                        <h3>Thông tin cá nhân</h3>
                                     </div>
-                                    <div class="card-body">
-                                        <table class="table">
-                                            <tr>
-                                                <th width="30%">Họ và tên</th>
-                                                <td>
-                                                    <input type="text" id="ten"></input>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th width="30%">Giới tính</th>
-                                                <td>
-                                                    <input type="text" id="gender"></input>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th width="30%">Tên đăng nhập</th>
-                                                <td>
-                                                    <input type="text" id="username"></input>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th width="30%">Email</th>
-                                                <td>
-                                                    <input type="email" id="email"></input>
-                                                </td>
-                                            </tr>
+                                    <form action="ChangeProfile" method = "get"  >
+                                        <div class="card-body">
+                                            <table class="table">
+                                                <tr>
+                                                    <th width="30%">Tên đăng nhập</th>
+                                                    <td>
+                                                        <%= user.getUsername() %>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Họ và tên</th>
+                                                    <td>
+                                                        <input type="text" name="ten"></input>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Giới tính</th>
+                                                    <td>
+                                                        <input type="text" name="gender"></input>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Email</th>
+                                                    <td>
+                                                        <input type="text" name="mail"></input>
+                                                    </td>
+                                                </tr>
 
-                                        </table>
-                                        <td>
-                                            <button class="card-header2" onclick="forward(2)">Cập nhật thông tin khách
-                                                hàng</button>
-                                            <button class="card-header2" onclick="forward(2)">Hủy bỏ</button>
-                                        </td>
+                                            </table>
+                                            <td>
+
+
+
+                                                <button type = "submit" class="card-header2" >Cập nhật thông tin khách
+                                                    hàng</button>
+                                                <button class="card-header2" onclick="forward(2)">Hủy bỏ</button>
+                                            </td>
+
+                                            <div class="message"><%= request.getAttribute("message") %></div>
                                         <table class="table" id="render">
                                             <!--                                        <th>Tên</th>
                                                                     <th>Năm sinh</th>
@@ -217,6 +223,7 @@
                                         </table>
 
                                     </div>
+                                    </form>
                                 </div>
                                 <div style="height: 25px"></div>
                                 <div class="card shadow-sm mau">
