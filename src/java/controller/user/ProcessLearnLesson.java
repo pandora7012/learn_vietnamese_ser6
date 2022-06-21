@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -34,11 +35,11 @@ public class ProcessLearnLesson extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
-        
+        HttpSession session = request.getSession();
         LessonDAO ld = new LessonDAO();
         
         ArrayList<Lesson> list = (ArrayList<Lesson>)ld.getListLesson();
-        request.setAttribute("listLesson", list);
+        session.setAttribute("listLesson", list);
         RequestDispatcher rd = request.getRequestDispatcher("/learn.jsp");
         rd.forward(request, response);
     }

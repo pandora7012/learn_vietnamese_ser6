@@ -23,50 +23,20 @@
                 <div class="banner">
                     <ul class="list__lesson">
 
+                       <%
+                       ArrayList<Lesson> list = (ArrayList<Lesson>)session.getAttribute("listLesson");
                        
-
-
-
+                       for (Lesson o : list) {
+                               
+                       %>
                         <li class="list__lesson-item">
-                            <a href="./lesson.jsp" class="list__lesson-item-link">
-                                Chữ A
+                            <a href="ProcessLesson?id=<%= o.getId() %>" class="list__lesson-item-link">
+                                <%= o.getLessonName() %>
                             </a>
                         </li>
-                        <li class="list__lesson-item">
-                            <a href="" class="list__lesson-item-link">
-                                Chữ Ă
-                            </a>
-                        </li>
-                        <li class="list__lesson-item">
-                            <a href="" class="list__lesson-item-link">
-                                Chữ Â
-                            </a>
-                        </li>
-                        <li class="list__lesson-item">
-                            <a href="" class="list__lesson-item-link">
-                                Chữ B
-                            </a>
-                        </li>
-                        <li class="list__lesson-item">
-                            <a href="" class="list__lesson-item-link">
-                                Chữ C
-                            </a>
-                        </li>
-                        <li class="list__lesson-item">
-                            <a href="" class="list__lesson-item-link">
-                                Tên bài học 6
-                            </a>
-                        </li>
-                        <li class="list__lesson-item">
-                            <a href="" class="list__lesson-item-link">
-                                Tên bài học 7
-                            </a>
-                        </li>
-                        <li class="list__lesson-item">
-                            <a href="" class="list__lesson-item-link">
-                                Tên bài học 8
-                            </a>
-                        </li>
+                        <%
+                            }     
+                       %>
                     </ul>
                 </div>
             </div>

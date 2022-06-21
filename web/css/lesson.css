@@ -1,118 +1,23 @@
-*{
+*{ 
     margin: 0;
     padding: 0;
     border: 0;
     font-size: 100%;
 }
-
-.homepage-container {
-
-}
-
-/* HEADER */
-
-.homepage-container .header {
-    width: 100%;
-    height: 90px;
-    border: 1px solid #ccc;
-}
-
-.header .header-content_wrapper {
-    height: 100%;
-    margin-left: 342px;
-    margin-right: 342px;
-}
-
-.header-content_wrapper .header-content {
-    display: flex;
-    height: 100%;
-}
-
-/* LEFT CONTETN */
-.header-content .left_content{
-    display: flex;
-    align-items: center;
-    height: 100%;
-    gap: 20px;
-}
-
-.header-content .left_content .left_content-item {
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.left_content .left_content-item img {
-    width: 63px;
-}
-
-
-/* RIGHT CONTENT  */
-.header-content .right_content {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 50%;
-    gap: 30px;
-}
-
-.header-content .right_content .right_content-item {
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.header-content .right_content .SignUp_btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 115px;
-    height: 42px;
-    background-color: #5574FC;
-    color: #fff;
-    border-radius: 4px;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-.header-content .right_content .SignUp_btn:hover {
-    background-color: #425fe6;
-}
-
-/*  */
-
-.homepage-container .yellow-bar {
-    width: 100%;
-    height: 62px;
-    background-color: #FED502;
-}
-
-.homepage-container .white-bar {
-    width: 100%;
-    height: 91px;
-    background-color: #fff;
-}
-
 /* LESSON WRAPPER */
-
-.homepage-container .lesson {
-    background-color: #f7f3ea;
-    height: 1000px;
-}
-
-.lesson .lesson-wrapper {
+.main-content {
     height: 100%;
-    margin: 0 200px;
 }
-
+.lesson-wrapper{
+   display:flex;
+   flex-direction: column;
+}
 .lesson-wrapper .lesson-title {
     display: flex;
     flex-direction: column;
-
-    padding: 30px 0px;
+    padding-top: 30px;
     text-align: center;
 }
-
 .lesson-title .title1 {
     margin-bottom: 20px;
     font-size: 30px;
@@ -120,94 +25,108 @@
 }
 
 .lesson-title .title2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 21px;
     width: 80%;
     margin: 0 auto;
     font-size: 43px;
     font-weight: 600;
 }
-
-.lesson-wrapper .lesson-content {
-    display: flex;
+.lesson-content {
     width: 100%;
     gap: 50px;
-    padding: 50px;
-    border-bottom: 1px solid #ccc;
-    border-top: 1px solid #ccc;
+    margin: 50px auto;
+    width: 80%;
 }
 
-.lesson-wrapper .lesson-content .img_wrapper {
+.lesson-content .img_wrapper {
     display: flex;
-    flex-direction: column;
     width: 100%;
-    gap: 12px;
-    align-items: center;
 }
+.content-img{
+    display: flex;
 
-.lesson-wrapper .lesson-content img{
-    width: 200px;
+}
+.lesson-content img{
+    width: 200px;  
     height: 200px;
     margin: 30px auto;
 }
-.lesson-wrapper .lesson-content2 {
+.content-item{
     display: flex;
-    width: 100%;
-    gap: 216px;
-    margin: 10px auto;
+    justify-content:space-around;
+    text-align: center;
+    height:150px;
+    margin-top: 25px;
 }
-.title-img{
-    font-size: 30px;
-    font-weight: 600;
+.content-item .img-sound{
+    width: 43px;
+    height: 43px;
+    margin:auto;
 }
-.lesson-wrapper .lesson-content3{
-    width: 100%;
-    height: 60px;
+.content-item .img-item{
+    width: 150px;
+    height: 150px;
+    border:1px solid #ccc
 }
-.lesson-wrapper .img_loudspeaker{
+.content-item h3{
+    font-size: 43px;
+    text-align: center;
+    margin: auto;
+}
+/* .list-content{
+} */
+.footer-top {
+    border-top: 1px solid black;
+    margin-top: 200px;
     display: flex;
-    height: 60px;
-}
-.lesson-wrapper .img_loudspeaker img {
-    border-radius: 50%;
-}
-.lesson-wrapper .lesson-content4{
-    width: 100%;
-    height: 500px;
-    margin: 30px 0px;
-}
-.lesson-wrapper .lesson-content4{
-    width: 100%;
-}
-.lesson-content4{
-    border: 0px solid;
-    font-size: 40px;
-}
-.lesson-content4 .imgContent1{
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-}
-.lesson-content4 .imgContent2{
-    width: 100px;
+    justify-content: center;
     height: 100px;
-    border-radius: 50%;
+    background-color: rgb(238, 0, 51);
 }
 
-.lesson-content4-item {
+.footer-bottom {
+    height: 50px;
+    background-color: rgb(255, 166, 187);
+    padding-top: 30px;
     display: flex;
-    justify-content: center;
-    gap: 300px;
-    align-items: center;
-    margin-top: 16px;
+    justify-content: center
 }
-
-.image-content4 {
+.banner{
+    box-shadow: 5px 5px 10px black;
+    border-radius:3.5rem;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
+    background-color: #235390;
+    background-image: url(https://d35aaqx5ub95lt.cloudfront.net/images/star-pattern.svg);
+    margin: 50px;
+    padding-bottom: 50px
 }
 
+.banner__content--text{
+    margin: 0 auto;
+    color: #fff;
+    font-size:3rem;
+    font-weight: bold;
+}
+.main-content {
+    margin-left: 30px;
+    width: 100%;
+    height: 100%;
+    border-radius: 5rem;
+}
+
+.lesson-content2 {
+    font-size: 2.4rem;
+    border-radius: 5rem;
+    margin-top: 50px;
+    width: 100%;
+    background-color: #235390;
+    box-shadow: 5px 5px 10px black;
+}
+
+.list-img {
+    display: flex;
+    padding: 20px;
+}
+
+.fix {
+    padding: 20px;
+}

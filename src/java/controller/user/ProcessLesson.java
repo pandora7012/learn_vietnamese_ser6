@@ -4,6 +4,7 @@
  */
 package controller.user;
 
+import bean.Lesson;
 import bean.Word;
 import dao.WordDAO;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -36,9 +38,18 @@ public class ProcessLesson extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         
         int id = Integer.parseInt(request.getParameter("id"));
+        HttpSession session = request.getSession();
+        ArrayList<Lesson> listLesson = (ArrayList<Lesson>)session.getAttribute("listLesson");
+        Lesson lesson = new Lesson();
+        for (Lesson i : listLesson) {
+            if(i.getId() == id){
+                lesson = new Lesson(i.getId(), i.getLessonName(), i.getWriteCa(), i.getWriteNo(), i.getPrintCa(), i.getPrintNo(), "");
+            }
+        }
         WordDAO wd = new WordDAO();
         ArrayList<Word> list = (ArrayList<Word>)wd.getWordListViaLessonID(id);
         request.setAttribute("listWord", list);
+        request.setAttribute("lesson", lesson);
         RequestDispatcher rd = request.getRequestDispatcher("lesson.jsp");
         rd.forward(request, response);
     }
