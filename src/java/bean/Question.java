@@ -17,7 +17,7 @@ public class Question implements Serializable {
     private String ans1;
     private String ans2;
     private String ans3;
-    private String ans4;
+    private String ans4;    
     private int idLession; 
 
     public Question( int id , String question, String ans1, String ans2, String ans3, String ans4, int idLession) {

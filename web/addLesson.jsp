@@ -25,7 +25,7 @@
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="d-flex align-items-center list-tools p-2 active-admin-tools">
                             <i class="fa-solid fa-book admin-tools-icon" style="width: 20px;"></i>
-                            <a href="/admin/addLesson.jsp" class="nav-link link-dark" aria-current="page">Thêm bài học</a>
+                            <a href="/addLesson.jsp" class="nav-link link-dark" aria-current="page">Thêm bài học</a>
                         </li>
                         <li class="d-flex align-items-center list-tools p-2">
                             <i class="fa-solid fa-users admin-tools-icon" style="width: 20px;"></i>
@@ -113,7 +113,7 @@
                         <%
                         for(Lesson l : listLesson){ 
                         %>
-                        <option value="1"><%= l.getLessonName() %></option>
+                        <option value="<%= l.getId() %>"><%= l.getLessonName() %></option>
                         <%
                         }   
                         %>
@@ -165,16 +165,20 @@
                         <div class="w-75 ps-4 d-flex justify-content-between">
                             <div class="">
                                 <label for="pnj-question" class="form-label font-">Hình ảnh (Tuỳ chọn)</label>
-                                <input type="file" class="form-control" id="pnj-question" name = "pnj_question">
+                                <input type="file" class="form-control" id="pnj-question" name = "png_question">
                             </div>
                             <div class="">
                                 <label for="sound-question" class="form-label font-">Âm thanh (Tuỳ chọn)</label>
                                 <input type="file" class="form-control" id="sound-question" name = "sound_question">
                             </div>
                         </div>
+                        ${sessionScope.message_Ques_Word}
                         <button type="submit" class="btn btn-info ms-4 mt-4" style="width: 80px";>Save</button>
                     </div>
                 </form>
+                    <%
+                        request.getSession().removeAttribute("message_Ques_Word");
+                    %>
             </div>
         </div>
     </div>

@@ -18,7 +18,7 @@ public class QuestionDAO {
         boolean result = false;
         try
         {
-            String query = "INSERT INTO tbl_question (idquestion, question, ans1, ans2, ans3, ans4, idlession) VALUES (?,?,?,?,?,?,?)";
+            String query = "INSERT INTO tbl_question (question, ans1, ans2, ans3, ans4, idlession) VALUES (?,?,?,?,?,?)";
             PreparedStatement pt = this.conn.prepareStatement(query);
             pt.setString(1, ques.getQuestion());
             pt.setString(2, ques.getAns1());
@@ -27,7 +27,7 @@ public class QuestionDAO {
             pt.setString(5, ques.getAns4());
             pt.setInt(6, ques.getIdLession());
             pt.execute();
-            result = true ;
+            result = true;
         }
         catch(Exception e){
             e.printStackTrace();

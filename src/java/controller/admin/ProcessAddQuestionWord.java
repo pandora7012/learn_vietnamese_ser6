@@ -19,6 +19,7 @@ import dao.LessonDAO;
 import dao.QuestionDAO;
 import dao.UserDAO;
 import dao.WordDAO;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -39,53 +40,99 @@ public class ProcessAddQuestionWord extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
-
+        
+        HttpSession session = request.getSession();
+        
+        boolean checkAddWord = true;
+        boolean checkAddQuestion = true;
         String contentWord = request.getParameter("content_word");
         String soundWord = request.getParameter("sound_word");
         String imgWord = request.getParameter("img_word");
 
         // add question
-        String question = request.getParameter("question");
+        if(contentWord.equals("") && soundWord.equals("") && imgWord.equals("")){
+            checkAddWord = false;
+        }
+        String question = request.getParameter("question_content");
         String ans1 = request.getParameter("ans1");
         String ans2 = request.getParameter("ans2");
         String ans3 = request.getParameter("ans3");
         String ans4 = request.getParameter("ans4");
+        if(question.equals("") && ans1.equals("") && ans2.equals("") && ans3.equals("") && ans4.equals("")){
+            checkAddQuestion = false;
+        }
      //   String imgQues = request.getParameter("sound_question");
 
         QuestionDAO questionDao = new QuestionDAO();
         WordDAO wordDao = new WordDAO();
-        LessonDAO lessonDAO = new LessonDAO();
 
         String message = "";
         request.setAttribute("message", message);
-        
+
         String chooseID = request.getParameter("select_sub");
         if (chooseID.equals("none")) {
-            message = "Please choose a lesson!";
-            request.setAttribute("message", message);
+            message = "Vui lòng chọn bài học!";
+            request.setAttribute("message_Ques_Word", message);
             RequestDispatcher rd = request.getRequestDispatcher("/addLesson.jsp");
             rd.forward(request, response);
-        } else {
+        }
+         else {
             int lessonID = Integer.parseInt(request.getParameter("select_sub"));
             Word word = new Word();
             word.setIdLession(lessonID);
-            word.setSound(soundWord);
-            word.setImg(imgWord);
+//            word.setSound(soundWord);
+//            word.setImg(imgWord);
             word.setWord(contentWord);
 
             Question ques = new Question();
+            ques.setIdLession(lessonID);
             ques.setQuestion(question);
             ques.setAns1(ans1);
             ques.setAns2(ans2);
             ques.setAns3(ans3);
             ques.setAns4(ans4);
             // ques.set(imgQues);
-
-            wordDao.addWord(word);
-            questionDao.addQuestion(ques);
+            if(checkAddWord == true){
+                if(wordDao.addWord(word)){
+                    request.getSession().setAttribute("message_Ques_Word", "Thêm từ thành công!");
+                }else{
+                    request.getSession().setAttribute("message_Ques_Word", "Thêm từ thất bại!");
+                }
+            }
+            if(checkAddQuestion == true){
+                if(questionDao.addQuestion(ques)){
+                    request.getSession().setAttribute("message_Ques_Word", "Thêm câu hỏi thành công!");
+                }else{
+                    request.getSession().setAttribute("message_Ques_Word", "Thêm câu hỏi thất bại!");
+                }
+            }
+            response.sendRedirect("/addLesson.jsp");
+//            RequestDispatcher rd = request.getRequestDispatcher("/addLesson.jsp");
+//            rd.forward(request, response);
         }
-
     }
+
+
+    // private boolean CheckIfCouldAdd(){
+    //     String contentWord = request.getParameter("content_word");
+    //     String soundWord = request.getParameter("sound_word");
+    //     String imgWord = request.getParameter("img_word");
+
+    //     // add question
+    //     String question = request.getParameter("question");
+    //     String ans1 = request.getParameter("ans1");
+    //     String ans2 = request.getParameter("ans2");
+    //     String ans3 = request.getParameter("ans3");
+    //     String ans4 = request.getParameter("ans4");
+
+
+    //     if (contentWord.equalsIgnoreCase("") || question.equalsIgnoreCase("") || ans1.equalsIgnoreCase("") || ans2.equalsIgnoreCase("") || ans3.equalsIgnore == null || ans3 == null || ans4 == null) 
+    //         return false ;
+
+
+    //     return true; 
+
+    // }
     // create function convert text-to-speech use google api
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the
