@@ -160,14 +160,14 @@
                                 </div>
                             </div>
                             <div style="height: 25px"></div>
-                            <div class="card shadow-sm">
-                                <div class="card-header bg-transparent ">
-                                    <h3 class="">Giới thiệu về bản thân</h3>
-                                </div>
-                                <div class="card-body">
-                                    <p>Hello</p>
-                                </div>
-                            </div>
+<%--                            <div class="card shadow-sm">--%>
+<%--                                <div class="card-header bg-transparent ">--%>
+<%--                                    <h3 class="">Giới thiệu về bản thân</h3>--%>
+<%--                                </div>--%>
+<%--                                <div class="card-body">--%>
+<%--                                    <p>Hello</p>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
                         </div>
                             <div class="col-lg-8" id="edit-infor" style="display: none">
                                 <div class="card shadow-sm mau">
@@ -226,15 +226,15 @@
                                     </form>
                                 </div>
                                 <div style="height: 25px"></div>
-                                <div class="card shadow-sm mau">
-                                    <div class="card-header bg-transparent ">
-                                        <h3 class="">Giới thiệu về bản thân</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <p>Hello</p>
-                                    </div>
-                                </div>
-                            </div>
+<%--                                <div class="card shadow-sm mau">--%>
+<%--                                    <div class="card-header bg-transparent ">--%>
+<%--                                        <h3 class="">Giới thiệu về bản thân</h3>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="card-body">--%>
+<%--                                        <p>Hello</p>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
                         <script>
                             function forward(val){
                                 if(val == 1){
