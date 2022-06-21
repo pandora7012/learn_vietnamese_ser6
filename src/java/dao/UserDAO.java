@@ -116,12 +116,54 @@ public class UserDAO {
         }
        return list;
     }
-    public void removeUser(String username)
-    {
+
+
+    public void removeUser(String username){
         try {
             PreparedStatement ps =  conn.prepareStatement("DELETE FROM tbl_user WHERE username = ?");
             ps.setString(1, username);
             ps.executeUpdate();
         } catch (SQLException e) {System.out.println("Error: " + e.getMessage()); }
     }
+
+
+
+
+    public boolean updateUser(User user){
+        boolean updated = false ; 
+        try {
+            String query = "Update tbl_user set fullname = ? , email = ? , gender = ? " ;
+            PreparedStatement pt = conn.prepareStatement(query);
+            pt.setString(1, user.getFull_name());
+            pt.setString(2, user.getEmail());
+            pt.setString(3, user.getGender());
+            pt.execute();
+            updated = true; 
+            return updated; 
+        }
+        catch (Exception e) {
+        }
+        return updated;
+    }
+
+//        boolean set = false;
+//        try{
+//            String query = "UPDATE tbl_user SET fullname = ?, City= ? WHERE CustomerID = 1;";
+//            PreparedStatement pt = conn.prepareStatement(query);
+//            pt.setString(1, user.getFull_name());
+//            pt.setString(2, user.getUsername());
+//            pt.setString(3, user.getPassword());
+//            // InputStream in = new FileInputStream("E:\\University\\Năm 3\\Web Programing\\BTL_Project\\BTL\\learn_vietnamese_ser6\\web\\images\\user_2.png");
+//            // InputStream in = new FileInputStream("/learn_vietnamese_ser6/web/images/user_2.png");
+//            // pt.setBlob(4, in);
+//            pt.setInt(4, 0);
+//            pt.setInt(5, 0);
+//            pt.setString(6, user.getEmail());
+//            pt.execute();
+//            set = true;
+//            return set;
+//        }catch(Exception e){
+//            e.printStackTrace();
+//        }
+//        return set;
 }

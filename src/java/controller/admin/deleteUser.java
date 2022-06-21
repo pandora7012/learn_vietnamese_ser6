@@ -34,8 +34,6 @@ public class deleteUser extends HttpServlet {
         String username = request.getParameter("username");
         UserDAO ud = new UserDAO();
         ud.removeUser(username);
-//        RequestDispatcher dis = request.getRequestDispatcher("UserStatistics");
-//        dis.forward(request, response);
         response.sendRedirect("UserStatistics");
     }
 

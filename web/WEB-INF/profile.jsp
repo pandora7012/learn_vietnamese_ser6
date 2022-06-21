@@ -102,19 +102,19 @@
                                 %>
                                     <img class="profile_img"
                                         src="./images/user_1.png"
-                                        alt="Avatar User"  width="150px" height="150px>
+                                        alt="Avatar User"  width="150px" height="150px">
                                 <%
                                     }else{
 
                                 %>
                                     <img class="profile_img"
                                             src="${pageContext.servletContext.contextPath}/ProcessImage?username=${sessionScope.user.username}"
-                                            alt="Avatar User"  width="150px" height="150px>
+                                            alt="Avatar User"  width="150px" height="150px">
                                 <%
                                     }
                                 %>
                                     <h3><%= user.getFull_name() %></h3>
-                                    <input type="file" name="" id="imageFile" onchange="chooseFile(this)"
+                                <input type="file" name="" id="imageFile" onchange="chooseFile(this)"
                                            accept="image/gif, image/jpeg, image/png, image/jpg">
                                 </div>
                                 <!-- <div class="card-body">
@@ -183,33 +183,21 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th width="30%">Năm sinh</th>
-                                                <td>
-                                                    <input type="number" id="sinh"></input>
-                                                </td>
-                                            </tr>
-                                            <tr>
                                                 <th width="30%">Giới tính</th>
                                                 <td>
-                                                    <input type="text" id="gioitinh"></input>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th width="30%">Quê quán</th>
-                                                <td>
-                                                    <input type="text" id="diachi"></input>
+                                                    <input type="text" id="gender"></input>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th width="30%">Tên đăng nhập</th>
                                                 <td>
-                                                    <input type="text" id="email"></input>
+                                                    <input type="text" id="username"></input>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th width="30%">Mật khẩu</th>
+                                                <th width="30%">Email</th>
                                                 <td>
-                                                    <input type="password" id="password"></input>
+                                                    <input type="email" id="email"></input>
                                                 </td>
                                             </tr>
 
@@ -217,8 +205,7 @@
                                         <td>
                                             <button class="card-header2" onclick="forward(2)">Cập nhật thông tin khách
                                                 hàng</button>
-                                            <!-- <button class="card-header2" onclick="editItem()">Sửa thông tin khách
-                                                                        hàng</button> -->
+                                            <button class="card-header2" onclick="forward(2)">Hủy bỏ</button>
                                         </td>
                                         <table class="table" id="render">
                                             <!--                                        <th>Tên</th>

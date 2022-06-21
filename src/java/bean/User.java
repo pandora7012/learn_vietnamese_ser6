@@ -2,7 +2,6 @@
 package bean;
 
 import java.io.Serializable;
-import java.util.Comparator;
 
 public class User implements Serializable {
     

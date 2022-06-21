@@ -115,7 +115,7 @@
                         <td>
                             <div class="w-100 h-100 d-flex align-items-center justify-content-center"> 
                                 <div class="icons-table">
-                                    <a href="deleteUser?username=<%= u.getUsername() %>"><i class="fa-solid fa-trash-can"></i></a>
+                                    <a href="deleteUser?username=<%= u.getUsername() %>" onclick="testConfirmDialog()"<i class="fa-solid fa-trash-can"></i></a>
                                 </div>
                             </div>
                         </td>

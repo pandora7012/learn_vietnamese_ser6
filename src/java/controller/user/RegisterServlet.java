@@ -49,9 +49,8 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("utf-8");
         String message = "";
-        
         String full_name = request.getParameter("Full_name");
         String email = request.getParameter("Email");
         String username = request.getParameter("Username");

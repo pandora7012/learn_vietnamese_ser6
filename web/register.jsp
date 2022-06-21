@@ -13,16 +13,16 @@
             <h3>Register</h3>
             <form action="register" method="post">
                 <div class="inputBox"> 
-                    <input id="full_name" type="text" name="Full_name" placeholder="Full Name" required> 
+                    <input id="full_name" type="text" name="Full_name" placeholder="Họ và tên" required> 
                     <input id="email" type="email" name="Email" placeholder="Email" required> 
-                    <input id="uname" type="text" name="Username" placeholder="Username" onkeyup="checkUsername();" required>
-                    <input id="pass" type="password" name="password" placeholder="Password" onkeyup="checkPassword();" required> 
-                    <input id="confirm_pass" type="password" name="confirm_password" placeholder="Confirm Password" onkeyup='checkPassword();' required> 
+                    <input id="uname" type="text" name="Username" placeholder="Tên người dùng" onkeyup="checkUsername();" required>
+                    <input id="pass" type="password" name="password" placeholder="Mật khẩu" onkeyup="checkPassword();" required> 
+                    <input id="confirm_pass" type="password" name="confirm_password" placeholder="Nhập lại mật khẩu" onkeyup='checkPassword();' required> 
                     <label style="display: block; position: relative;margin-bottom:25px; " id="message">${message_register}</label>
                     <%
                         request.getSession().removeAttribute("message_register");
                     %>
-                </div> <input type="submit" name="" value="Submit">
+                </div> <input type="submit" name="" value="Đăng ký">
             </form> <a href="#">Forget Password<br> </a>
             <div class="text-center">
                 <p style="color: #59238F;"><a href="/login.jsp">Login</a></p>

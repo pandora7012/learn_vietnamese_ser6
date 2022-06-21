@@ -6,11 +6,11 @@
         <%@include file="includes/navbar.jsp" %>
         <div class="content">
             <div class="question-number">
-                <ul class="list-question">
+                <%--<ul class="list-question">
                     <li class="question--item"><a href="#" onclick="GetThemeInfo(this.value)">Theme 1</a></li>
                     <li class="question--item"><a href="#" onclick="GetThemeInfo(this.value)">Theme 2</a></li>
                     <li class="question--item"><a href="#" onclick="GetThemeInfo(this.value)">Theme 3</a></li>
-                </ul>
+                </ul>--%>
             </div>
             <div class="practice_block" dir="auto">
                 <div class="question_block" dir="auto">

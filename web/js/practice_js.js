@@ -1,15 +1,16 @@
 var score = 0;
-var textData
-const arrayQuestions = [ 
-["Từ nào chứa chữ c?", "Bát đĩa" , "Hoa lá" , "Cỏ cây" , "Sấm sét" , "Cỏ cây"],
-["Từ nào chứa chữ a?", "con cá" , "bút chì" , "bình nước" , "Sấm sét" , "con cá"],
-["Từ nào chứa chữ b?", "con bê" , "con mèo" , "con gà" , "con nợn" , "con bê"],
-["Từ nào chứa chữ c?", "quần áo", "bàn học", "tủ kính", "tủ lạnh", "bàn học"]
-]
+var textData;
+const arrayQuestions = [];
 var currentQuestion;
 var textData;
+var questionAnswer;
 
 StartPractice();
+
+
+function GetQuestionFromData(){
+
+}
 
 function CorrectAnswerButtonClick() {
     score += 10;
@@ -18,8 +19,15 @@ function CorrectAnswerButtonClick() {
 }
 
 function IncorrectAnswerButtonClick() {
-   // score = 0 ;
+
     UpdateUI()
+    var answer = window.confirm("Kết thúc, số điểm của bạn là " + score + ", bạn có muốn luyện tập lại ? ");
+    if (answer) {
+        location.reload();
+    }
+    else {
+        window.location = "./index.jsp"
+    }
 }
 
 function CheckAnswer(buttonID){
@@ -29,18 +37,12 @@ function CheckAnswer(buttonID){
     }
     else {
         IncorrectAnswerButtonClick();
-        var answer = window.confirm("Kết thúc, số điểm của bạn là " + score + ", bạn có muốn luyện tập lại ? ");
-        if (answer) {
-            location.reload();
-        }
-        else {
-            window.location = "./index.jsp"
-        }
     }
         
 }
 
 function StartPractice() {
+    score = 0
     GetNewQuestions()
     UpdateUI()
 }
@@ -51,6 +53,7 @@ function UpdateUI() {
 
 function GetNewQuestions() {
 
+
     var rd = Math.floor(Math.random() * arrayQuestions.length);
     currentQuestion = arrayQuestions[rd];
     document.getElementById('question_content').innerHTML = currentQuestion[0];
@@ -58,7 +61,9 @@ function GetNewQuestions() {
     document.getElementById('buttonB').innerHTML = currentQuestion[2];
     document.getElementById('buttonC').innerHTML = currentQuestion[3];
     document.getElementById('buttonD').innerHTML = currentQuestion[4];
-    arrayQuestions.RemoveAt(rd);
+    questionAnswer = currentQuestion[5];
+   // arrayQuestions.RemoveAt(rd);
+
 
 }
 
