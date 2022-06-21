@@ -113,7 +113,11 @@
                         <%
                         for(Lesson l : listLesson){ 
                         %>
+<<<<<<< Updated upstream
                         <option value="<%= l.getId() %>"><%= l.getLessonName() %></option>
+=======
+                        <option value= <%= l.getId() %> ><%= l.getLessonName() %></option>
+>>>>>>> Stashed changes
                         <%
                         }   
                         %>
