@@ -16,7 +16,7 @@ public class DBConnection {
         Connection conn = null;
         String DB_URL = "jdbc:mysql://localhost:3306/learn_vietnamese_web";
         String USER_NAME = "root";
-        String PASSWORD = "1111";
+        String PASSWORD = "admin";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
