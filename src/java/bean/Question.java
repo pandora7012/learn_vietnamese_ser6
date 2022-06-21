@@ -18,17 +18,15 @@ public class Question implements Serializable {
     private String ans2;
     private String ans3;
     private String ans4;
-    private int numStar; 
     private int idLession; 
 
-    public Question( int id , String question, String ans1, String ans2, String ans3, String ans4, int numStar, int idLession) {
+    public Question( int id , String question, String ans1, String ans2, String ans3, String ans4, int idLession) {
         this.id = id;
         this.question = question;
         this.ans1 = ans1;
         this.ans2 = ans2;
         this.ans3 = ans3;
         this.ans4 = ans4;
-        this.numStar = numStar;
         this.idLession = idLession;
     }
 
@@ -73,14 +71,6 @@ public class Question implements Serializable {
 
     public void setAns4(String ans4) {
         this.ans4 = ans4;
-    }
-
-    public int getNumStar() {
-        return numStar;
-    }
-
-    public void setNumStar(int numStar) {
-        this.numStar = numStar;
     }
 
     public int getIdLession() {

@@ -18,15 +18,14 @@ public class QuestionDAO {
         boolean result = false;
         try
         {
-            String query = "INSERT INTO tbl_question (idquestion, question, ans1, ans2, ans3, ans4, numStar, idlession) VALUES (?,?,?,?,?,?,?,?)";
+            String query = "INSERT INTO tbl_question (idquestion, question, ans1, ans2, ans3, ans4, idlession) VALUES (?,?,?,?,?,?,?)";
             PreparedStatement pt = this.conn.prepareStatement(query);
             pt.setString(1, ques.getQuestion());
             pt.setString(2, ques.getAns1());
             pt.setString(3, ques.getAns2());
             pt.setString(4, ques.getAns3());
             pt.setString(5, ques.getAns4());
-            pt.setInt(6, ques.getNumStar());
-            pt.setInt(7, ques.getIdLession());
+            pt.setInt(6, ques.getIdLession());
             pt.execute();
             result = true ;
         }
@@ -36,13 +35,13 @@ public class QuestionDAO {
         return result;
     }
 
-    public ArrayList<Question> getQuestionListViaLessonID(int id){
+    public ArrayList<Question> getQuestionListViaLessonID(int idlesson){
         ArrayList<Question> answerList = new ArrayList<Question>();
         Question question = null;
         try {
             String sql = "Select * from tbl_question where idlesson = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1, idlesson);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 question = new Question(
@@ -52,8 +51,7 @@ public class QuestionDAO {
                                 rs.getString("ans2"),
                                 rs.getString("ans3"),
                                 rs.getString("ans4"),
-                                rs.getInt("numStar"),
-                                id
+                                idlesson
                 );
                 answerList.add(question);
             }

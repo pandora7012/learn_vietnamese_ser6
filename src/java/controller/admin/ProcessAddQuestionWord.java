@@ -6,11 +6,16 @@ package controller.admin;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.Question;
+import bean.Word;
+import dao.LessonDAO;
 import dao.QuestionDAO;
 import dao.UserDAO;
 import dao.WordDAO;
@@ -25,10 +30,10 @@ public class ProcessAddQuestionWord extends HttpServlet {
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -45,25 +50,53 @@ public class ProcessAddQuestionWord extends HttpServlet {
         String ans2 = request.getParameter("ans2");
         String ans3 = request.getParameter("ans3");
         String ans4 = request.getParameter("ans4");
+     //   String imgQues = request.getParameter("sound_question");
 
         QuestionDAO questionDao = new QuestionDAO();
         WordDAO wordDao = new WordDAO();
-        // ArrayList<Question> list = questionDao.getListUser();
+        LessonDAO lessonDAO = new LessonDAO();
+
+        String message = "";
+        request.setAttribute("message", message);
         
-        // request.setAttribute("listUser", list);
-        // RequestDispatcher rd = request.getRequestDispatcher("admin/userStatistics.jsp");
-        //     rd.forward(request, response);
+        String chooseID = request.getParameter("select_sub");
+        if (chooseID.equals("none")) {
+            message = "Please choose a lesson!";
+            request.setAttribute("message", message);
+            RequestDispatcher rd = request.getRequestDispatcher("/addLesson.jsp");
+            rd.forward(request, response);
+        } else {
+            int lessonID = Integer.parseInt(request.getParameter("select_sub"));
+            Word word = new Word();
+            word.setIdLession(lessonID);
+            word.setSound(soundWord);
+            word.setImg(imgWord);
+            word.setWord(contentWord);
+
+            Question ques = new Question();
+            ques.setQuestion(question);
+            ques.setAns1(ans1);
+            ques.setAns2(ans2);
+            ques.setAns3(ans3);
+            ques.setAns4(ans4);
+            // ques.set(imgQues);
+
+            wordDao.addWord(word);
+            questionDao.addQuestion(ques);
+        }
+
     }
     // create function convert text-to-speech use google api
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the
+    // + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -74,10 +107,10 @@ public class ProcessAddQuestionWord extends HttpServlet {
     /**
      * Handles the HTTP <code>POST</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

@@ -1,3 +1,4 @@
+<%@page import="dao.LessonDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="bean.Lesson"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -73,7 +74,7 @@
                         </div>-->
                         <div class="my-3 w-75 ps-4">
                             <label for="name-lesson" class="form-label font-">Tên bài học</label>
-                            <input type="text" class="form-control" id="name-lesson" placeholder="Nhập tên bài học" name = "name_lesson">
+                            <input type="text" class="form-control" id="name-lesson" placeholder="Nhập tên bài học" name = "name_lesson" required>
                         </div>
                         <!-- for của label === id của input ngay dưới nó nên tự điền nhé -->
                         <div class="mb-3 w-75 ps-4">
@@ -103,10 +104,19 @@
                 </form>
 
                 <form action="ProcessAddQuestionWord" method="get">
+                    <% 
+                    LessonDAO ld = new LessonDAO();
+                    ArrayList<Lesson> listLesson = (ArrayList<Lesson>)ld.getListLesson();
+                    %>
                     <select class="form-select mt-3 ms-4" id="select-sub" name = "select_sub"  style="width: 15%">;
                         <option selected value="none">Lựa chọn bài học</option>
-
-                        
+                        <%
+                        for(Lesson l : listLesson){ 
+                        %>
+                        <option value="1"><%= l.getLessonName() %></option>
+                        <%
+                        }   
+                        %>
                     </select>
                     <div class="d-flex flex-column mt-3">
                         <h5 class="card-title">Thêm từ <i class="fa-brands fa-amilia admin-tools-icon" style="width: 20px;"></i></h5>
@@ -134,22 +144,22 @@
                             <input type="text" class="form-control" id="question" name = "question_content">
                         </div>
                         <div class="mb-3 w-75 ps-4">
-                            <label for="ans1" class="form-label font-">Đáp án 1</label>
+                            <label for="ans1" class="form-label font-">Đáp án đúng</label>
                             <input type="text" class="form-control" id="ans1" name = "ans1">
                         </div>
     
                         <div class="mb-3 w-75 ps-4">
-                            <label for="ans2" class="form-label font-">Đáp án 2</label>
+                            <label for="ans2" class="form-label font-">Đáp án khác 1</label>
                             <input type="text" class="form-control" id="ans2" name = "ans2">
                         </div>
     
                         <div class="mb-3 w-75 ps-4">
-                            <label for="ans3" class="form-label font-">Đáp án 3</label>
+                            <label for="ans3" class="form-label font-">Đáp án khác 2</label>
                             <input type="text" class="form-control" id="ans3" name = "ans3">
                         </div>
     
                         <div class="mb-3 w-75 ps-4">
-                            <label for= "ans4" class="form-label font-">Đáp án 4</label>
+                            <label for= "ans4" class="form-label font-">Đáp án khác 3</label>
                             <input type="text" class="form-control" id="ans4" name = "ans4">
                         </div>
                         <div class="w-75 ps-4 d-flex justify-content-between">
