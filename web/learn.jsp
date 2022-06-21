@@ -1,3 +1,5 @@
+<%@ page import="bean.Lesson" %>
+<%@ page import="java.util.ArrayList" %>
 <%@include file="includes/header.jsp" %>
 <link rel="stylesheet" href="./css/learn.css">
 <link rel="stylesheet" href="./css/main.css">
@@ -20,6 +22,11 @@
                 <!-- Duy -->
                 <div class="banner">
                     <ul class="list__lesson">
+
+                       
+
+
+
                         <li class="list__lesson-item">
                             <a href="./lesson.jsp" class="list__lesson-item-link">
                                 Chữ A
