@@ -24,7 +24,7 @@
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="d-flex align-items-center list-tools p-2 active-admin-tools">
                             <i class="fa-solid fa-book admin-tools-icon" style="width: 20px;"></i>
-                            <a href="/addLesson.jsp" class="nav-link link-dark" aria-current="page">Thêm bài học</a>
+                            <a href="/admin/addLesson.jsp" class="nav-link link-dark" aria-current="page">Thêm bài học</a>
                         </li>
                         <li class="d-flex align-items-center list-tools p-2">
                             <i class="fa-solid fa-users admin-tools-icon" style="width: 20px;"></i>
@@ -32,7 +32,7 @@
                         </li>
                         <li class="d-flex align-items-center list-tools p-2">
                             <i class="fa-solid fa-book-open admin-tools-icon" style="width: 20px;"></i>
-                            <a href="/lessonStatistics.jsp" class="nav-link link-dark">Thống kê bài học</a>
+                            <a href="LessonStatistics" class="nav-link link-dark">Thống kê bài học</a>
                         </li>
                     </ul>
                 </div>

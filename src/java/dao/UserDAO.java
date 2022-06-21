@@ -118,23 +118,10 @@ public class UserDAO {
     }
     public void removeUser(String username)
     {
-        String sql = "select avt from tbl_user where username = ?";
         try {
             PreparedStatement ps =  conn.prepareStatement("DELETE FROM tbl_user WHERE username = ?");
             ps.setString(1, username);
             ps.executeUpdate();
-
-            int rowsUpdated = ps.executeUpdate();
-            if (rowsUpdated == 0) {
-                System.out.println("User does not exist");
-            } else {
-                System.out.println("User deleted");
-            }
-
-
-
-            //pstmnt.executeBatch();
-            System.out.println("Removed User :" + username);
         } catch (SQLException e) {System.out.println("Error: " + e.getMessage()); }
     }
 }

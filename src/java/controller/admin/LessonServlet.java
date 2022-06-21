@@ -110,7 +110,7 @@ public class LessonServlet extends HttpServlet {
         //     wordDao.addWord(word);
         //     questionDao.addQuestion(qs);
         // }
-        RequestDispatcher rd = request.getRequestDispatcher("/addLesson.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/admin/addLesson.jsp");
         rd.forward(request, response);
     }
 

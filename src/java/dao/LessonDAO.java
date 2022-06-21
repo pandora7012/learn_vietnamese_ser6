@@ -43,46 +43,65 @@ public class LessonDAO {
         }
         return flag;
     }
-    public ArrayList<Lesson> GetLessonList() {
-        ArrayList<Lesson> lessonList = new ArrayList<Lesson>();
+//    public ArrayList<Lesson> getLessonList() {
+//        ArrayList<Lesson> lessonList = new ArrayList<Lesson>();
+//        Lesson lesson = null;
+//        try{
+//            String query = "Select * from tbl_lesson"; 
+//            PreparedStatement ps = conn.prepareStatement(query);
+//            ResultSet rs = ps.executeQuery();
+//            while (rs.next()){
+//                lesson = new Lesson(
+//                        rs.getInt("idlesson"),
+//                        rs.getString("name"),
+//                        rs.getString("writeCa"),
+//                        rs.getString("writeNo"),
+//                        rs.getString("printCa"),
+//                        rs.getString("printNo"),
+//                        rs.getString("sound")
+//                );
+//                lessonList.add(lesson);
+//            }
+//        }
+//        catch (SQLException ex) {
+//            Logger.getLogger(LessonDAO.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return lessonList;
+//    }
+    public ArrayList<Lesson> getListLesson(){
         Lesson lesson = null;
-        try{
-            String query = "Select * from tbl_lesson"; 
-            PreparedStatement ps = conn.prepareStatement(query);
+        ArrayList<Lesson> list = new ArrayList<>();
+        try {
+            String sql = "Select * from tbl_lesson";
+            PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
-                lesson = new Lesson(
-                        rs.getInt("id"),
-                        rs.getString("name"),
-                        rs.getString("writeCa"),
-                        rs.getString("writeNo"),
-                        rs.getString("printCa"),
-                        rs.getString("printNo"),
-                        rs.getString("sound")
+            while (rs.next()) {
+                lesson = new Lesson(rs.getInt("idlesson"),
+                                rs.getString("name"),
+                                rs.getString("writeCa"),
+                                rs.getString("writeNo"),
+                                rs.getString("printCa"),
+                                rs.getString("printNo"),
+                                rs.getString("sound")
                 );
-                lessonList.add(lesson);
+                list.add(lesson);
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        catch (SQLException ex) {
-            Logger.getLogger(LessonDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return lessonList;
+       return list;
     }
-    public int GetIDViaName(String name) {
-        int id = -1 ; 
-         try{
-            String query = "Select tbl_lesson.name from tbl_lesson "; 
-            PreparedStatement ps = conn.prepareStatement(query);
-            ResultSet rs = ps.executeQuery();
 
-            if (rs.next()) {
-
-                id = rs.getInt("idlesson");
-            }
+    public boolean deleteLesson(int id){
+        boolean deleted = false ; 
+        try{
+            String query = "Delete from tbl_lesson where id = " + id; 
+            PreparedStatement pt = conn.prepareStatement(query);
+            pt.execute();
+            deleted = true;
         }
-        catch (SQLException ex) {
-            Logger.getLogger(LessonDAO.class.getName()).log(Level.SEVERE, null, ex);
+        catch (Exception e) {
         }
-        return id; 
+        return deleted;
     }
 }

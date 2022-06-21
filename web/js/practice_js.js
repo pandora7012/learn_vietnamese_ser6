@@ -29,12 +29,11 @@ function CheckAnswer(buttonID){
     }
     else {
         IncorrectAnswerButtonClick();
-        var answer = window.confirm("Kết thúc, bạn có muốn luyện tập lại ? ");
+        var answer = window.confirm("Kết thúc, số điểm của bạn là " + score + ", bạn có muốn luyện tập lại ? ");
         if (answer) {
             location.reload();
         }
         else {
-            //location.reload();
             window.location = "./index.jsp"
         }
     }
@@ -59,6 +58,7 @@ function GetNewQuestions() {
     document.getElementById('buttonB').innerHTML = currentQuestion[2];
     document.getElementById('buttonC').innerHTML = currentQuestion[3];
     document.getElementById('buttonD').innerHTML = currentQuestion[4];
+    arrayQuestions.RemoveAt(rd);
 
 }
 
