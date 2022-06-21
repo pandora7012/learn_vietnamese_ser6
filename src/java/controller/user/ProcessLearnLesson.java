@@ -2,27 +2,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller.admin;
+package controller.user;
 
+import bean.Lesson;
+import dao.LessonDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.Lesson;
-import dao.LessonDAO;
-import javax.servlet.http.HttpSession;
-
 /**
  *
  * @author Quach Dinh Kien
  */
-public class ProcessAddLesson extends HttpServlet {
+public class ProcessLearnLesson extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,32 +34,13 @@ public class ProcessAddLesson extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
-        HttpSession session = request.getSession();
-
-        String tenBaiHoc = request.getParameter("name_lesson");
-        String chuVietHoa = request.getParameter("write_upper");
-        String chuVietThuong = request.getParameter("write_lower");
-        String chuInHoa = request.getParameter("print_upper");
-        String chuInThuong = request.getParameter("print_lower");
-        String amThanh = request.getParameter("sound_lesson");
-        // add lesson
-        request.setAttribute("message", "");
-        LessonDAO ld = new LessonDAO();
-        Lesson lesson = new Lesson();
         
-        lesson.setLessonName(tenBaiHoc); // tam thoi chi co ten thoi vi chua co anh
-        lesson.setWriteCa(chuVietHoa); // okruu
-        lesson.setWriteNo(chuVietThuong);
-        lesson.setPrintCa(chuInHoa);
-        lesson.setPrintNo(chuInThuong);
-        if(ld.addLesson(lesson)){
-            session.setAttribute("message", "Thêm bài học thành công!");
-        }else{
-            session.setAttribute("message", "Thêm bài học thất bại!");
-        }
-//        RequestDispatcher dis = request.getRequestDispatcher("addLesson.jsp");
-//        dis.forward(request, response);
-        response.sendRedirect("addLesson.jsp");
+        LessonDAO ld = new LessonDAO();
+        
+        ArrayList<Lesson> list = (ArrayList<Lesson>)ld.getListLesson();
+        request.setAttribute("listLesson", list);
+        RequestDispatcher rd = request.getRequestDispatcher("/learn.jsp");
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -79,23 +79,23 @@
                         <!-- for của label === id của input ngay dưới nó nên tự điền nhé -->
                         <div class="mb-3 w-75 ps-4">
                             <label for="write-upper" class="form-label font-">Hình chữ viết hoa</label>
-                            <input type="file" class="form-control" id="write-upper" name = "write_upper">
+                            <input type="text" class="form-control" id="write-upper" placeholder="Nhập đường dẫn hình ảnh" name = "write_upper">
                         </div>
                         <div class="mb-3 w-75 ps-4">
                             <label for="write-lower" class="form-label font-">Hình chữ viết thường</label>
-                            <input type="file" class="form-control" id="write-lower" name = "write_lower">
+                            <input type="text" class="form-control" id="write-lower" placeholder="Nhập đường dẫn hình ảnh" name = "write_lower">
                         </div>
                         <div class="mb-3 w-75 ps-4">
                             <label for="print-upper" class="form-label font-">Hình chữ in hoa</label>
-                            <input type="file" class="form-control" id="print-upper" name = "print_upper">
+                            <input type="text" class="form-control" id="print-upper" placeholder="Nhập đường dẫn hình ảnh" name = "print_upper">
                         </div>
                         <div class="mb-3 w-75 ps-4">
                             <label for="print-lower" class="form-label font-">Hình chữ in thường</label>
-                            <input type="file" class="form-control" id="print-lower" name = "print_lower">
+                            <input type="text" class="form-control" id="print-lower" placeholder="Nhập đường dẫn hình ảnh" name = "print_lower">
                         </div>
                         <div class="mb-3 w-75 ps-4">
                             <label for="sound-lesson" class="form-label font-">Âm thanh</label>
-                            <input type="file" class="form-control" id="sound-lesson"  name = "sound_lesson">
+                            <input type="file" class="form-control" id="sound-lesson"   name = "sound_lesson">
                         </div>
                     </div>
                     <div class="message"><%= request.getAttribute("message") %></div>
@@ -113,11 +113,7 @@
                         <%
                         for(Lesson l : listLesson){ 
                         %>
-<<<<<<< Updated upstream
                         <option value="<%= l.getId() %>"><%= l.getLessonName() %></option>
-=======
-                        <option value= <%= l.getId() %> ><%= l.getLessonName() %></option>
->>>>>>> Stashed changes
                         <%
                         }   
                         %>
@@ -127,7 +123,7 @@
                         <!-- for của label === id của input ngay dưới nó nên tự điền nhé -->
                         <div class="mb-3 w-75 ps-4">
                             <label for="png-word" class="form-label font-">Hình ảnh</label>
-                            <input type="file" class="form-control" id="png-word" name = "img_word" >
+                            <input type="text" class="form-control" id="png-word" placeholder="Nhập đường dẫn hình ảnh" name = "img_word" >
                         </div>
                         <div class="mb-3 w-75 ps-4">
                             <label for="sound-word" class="form-label font-">Âm thanh</label>

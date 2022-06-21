@@ -17,12 +17,12 @@ public class WordDAO {
         boolean added = false ;
         try
         {
-            String query = "INSERT INTO tbl_word  (word , idLesson ) VALUES (?,?)";
+            String query = "INSERT INTO tbl_word  (img, word , idLesson ) VALUES (?,?,?)";
             PreparedStatement pt = conn.prepareStatement(query);
-            // pt.setString(1, word.getImg());
+             pt.setString(1, word.getImg());
             // pt.setString(2, word.getSound());
-            pt.setString(1, word.getWord());
-            pt.setInt(2,  word.getIdLession());
+            pt.setString(2, word.getWord());
+            pt.setInt(3,  word.getIdLession());
             pt.execute();
             added = true ; 
         }

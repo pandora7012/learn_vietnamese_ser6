@@ -79,7 +79,7 @@ public class ProcessAddQuestionWord extends HttpServlet {
             Word word = new Word();
             word.setIdLession(lessonID);
 //            word.setSound(soundWord);
-//            word.setImg(imgWord);
+            word.setImg(imgWord);
             word.setWord(contentWord);
 
             Question ques = new Question();
