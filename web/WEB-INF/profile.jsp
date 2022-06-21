@@ -209,7 +209,7 @@
 
                                                 <button type = "submit" class="card-header2" >Cập nhật thông tin khách
                                                     hàng</button>
-                                                <button class="card-header2" onclick="forward(2)">Hủy bỏ</button>
+
                                             </td>
 
                                             <div class="message"><%= request.getAttribute("message") %></div>
@@ -224,6 +224,7 @@
 
                                     </div>
                                     </form>
+                                    <button class="card-header2" onclick="forward(2)">Hủy bỏ</button>
                                 </div>
                                 <div style="height: 25px"></div>
 <%--                                <div class="card shadow-sm mau">--%>

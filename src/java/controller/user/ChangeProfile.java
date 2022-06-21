@@ -37,9 +37,19 @@ public class ChangeProfile extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
+        boolean checkData = true ;
+
+
+
+
         String name = request.getParameter("ten");
         String gender = request.getParameter("gender");
         String mail = request.getParameter("mail");
+
+
+        if(name.equals("") || gender.equals("") || mail.equals("")){
+            checkData = false;
+        }
 
         HttpSession session = request.getSession();
         UserDAO dao = new UserDAO();
@@ -47,13 +57,16 @@ public class ChangeProfile extends HttpServlet {
         u.setFull_name(name);
         u.setEmail(mail);
         u.setGender(gender);
-        if ( dao.updateUser(u) ){
-            request.setAttribute("message", "Thanh cong");
-            session.setAttribute("user", u);
+        if (checkData){
+            if ( dao.updateUser(u) ){
+                request.setAttribute("message", "Thanh cong");
+                session.setAttribute("user", u);
+            }
+            else {
+                request.setAttribute("message", "That bai");
+            }
         }
-        else {
-            request.setAttribute("message", "That bai");
-        }
+
 
         RequestDispatcher dis = request.getRequestDispatcher("/WEB-INF/profile.jsp");
         dis.forward(request, response);
