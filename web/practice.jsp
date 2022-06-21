@@ -12,6 +12,11 @@
                     <li class="question--item"><a href="#" onclick="GetThemeInfo(this.value)">Theme 3</a></li>
                 </ul>--%>
             </div>
+            <%
+            if(session.getAttribute("user") == null){
+                response.sendRedirect("login.jsp");
+            }
+        %>
             <div class="practice_block" dir="auto">
                 <div class="question_block" dir="auto">
                     <div class="question" dir="auto"><span class="question_content" id="question_content">Đây là câu hỏi !!! </span></div>

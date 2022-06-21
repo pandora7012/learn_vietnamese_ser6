@@ -21,7 +21,11 @@
                 </li>
             </ul>
         </div>
-        
+        <%
+            if(session.getAttribute("user") == null){
+                response.sendRedirect("login.jsp");
+            }
+        %>
         <div class="detail-infor">
             <ul class="nav1">
                 <%

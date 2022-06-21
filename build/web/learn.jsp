@@ -17,6 +17,11 @@
                 tập phong phú được biên soạn bám sát theo nội dung SGK Tiếng Việt Lớp 1 mới - Bộ Kết nối tri thức.
             </div>
         </div>
+        <%
+            if(session.getAttribute("user") == null){
+                response.sendRedirect("login.jsp");
+            }
+        %>
         <div class="lesson">
             <div class="lesson-wrapper">
                 <!-- Duy -->

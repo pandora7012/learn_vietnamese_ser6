@@ -10,8 +10,16 @@
             <div class="banner__content">
                 <div class="banner__content--text">
                     <h3>Cách học ngôn ngữ miễn phí, vui nhộn và hiệu quả!</h3>
+                    
                     <div class="banner__content--btn-area">
+                    <%
+                        if(session.getAttribute("user") == null){
+                        
+                    %>
                         <div class="btn-success btn--start"><a href="/login.jsp">Login</a></div>
+                    <%
+                        }
+                    %>
                     </div>
                 </div>
                 <div class="banner__content--image-area">
