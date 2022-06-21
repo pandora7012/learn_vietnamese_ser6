@@ -17,8 +17,8 @@ public class WordDAO {
         boolean added = false ;
         try
         {
-            String query = "INSERT INTO tbl_word  (word , idLession ) VALUES (?,?)";
-            PreparedStatement pt = this.conn.prepareStatement(query);
+            String query = "INSERT INTO tbl_word  (word , idLesson ) VALUES (?,?)";
+            PreparedStatement pt = conn.prepareStatement(query);
             // pt.setString(1, word.getImg());
             // pt.setString(2, word.getSound());
             pt.setString(1, word.getWord());

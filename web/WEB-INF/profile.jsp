@@ -114,8 +114,8 @@
                                     }
                                 %>
                                     <h3><%= user.getFull_name() %></h3>
-                                <input type="file" name="" id="imageFile" onchange="chooseFile(this)"
-                                           accept="image/gif, image/jpeg, image/png, image/jpg">
+                                <input class="inputfile" type="file" name="" id="imageFile" onchange="chooseFile(this)"
+                                           accept="image/gif, image/jpeg, image/png, image/jpg"> 
                                 </div>
                                 <!-- <div class="card-body">
                                     <p class="mb-0"><strong class="pr-1"></strong></p>
