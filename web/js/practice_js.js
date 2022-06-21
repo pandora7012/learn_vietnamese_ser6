@@ -1,6 +1,15 @@
 var score = 0;
 var textData;
-const arrayQuestions = [];
+const arrayQuestions = [
+    ["Từ nào không chứa chữ A ?" ,"Con mèo",  "Vật vã" , "La cà" , "Con gà"],
+    ["Từ nào không chứa chữ B ?" , "Đánh đàn" , "Bàn là" , "Búp bê" , "Bé Mai"],
+    ["Từ nào chứa chữ C ?" , "Cú con" , "Bàn là" , "Búp bê" , "Bé Mai"],
+    ["Từ nào chứa chữ D ?" , "Chiếc dù" , "Cỏ cây" , "Con mèo" , "Bé Mai"],
+    ["Từ nào chứa chữ C ?" , "Quả cam" , "Điện thoại" , "Thanh Thoát" , "Quạt Trần"],
+    ["Từ nào chứa chữ A ?" , "Á hậu" , "Cỏ cây" , "Con mèo" , "Lông cừu"],
+    ["Từ nào chứa chữ B ?" , "Bánh đa" , "Cỏ cây" , "Con mèo" , "Thanh Thoát"]
+
+];
 var currentQuestion;
 var textData;
 var questionAnswer;
@@ -32,7 +41,7 @@ function IncorrectAnswerButtonClick() {
 
 function CheckAnswer(buttonID){
     var answer = document.getElementById(buttonID).textContent;
-    if(answer == currentQuestion[5]){
+    if(answer == currentQuestion[1]){
         CorrectAnswerButtonClick()
     }
     else {
