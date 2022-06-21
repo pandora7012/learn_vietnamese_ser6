@@ -12,7 +12,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <th width="30%">Năm sinh</th>
+                    <th width="30%">Giới tính</th>
                     <td>
                         <input type="number" id="sinh"></input>
                     </td>

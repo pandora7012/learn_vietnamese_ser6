@@ -126,17 +126,15 @@ public class UserDAO {
         } catch (SQLException e) {System.out.println("Error: " + e.getMessage()); }
     }
 
-
-
-
     public boolean updateUser(User user){
         boolean updated = false ; 
         try {
-            String query = "Update tbl_user set fullname = ? , email = ? , gender = ? " ;
+            String query = "Update tbl_user set fullname = ? , email = ? , gender = ? where username = ?" ;
             PreparedStatement pt = conn.prepareStatement(query);
             pt.setString(1, user.getFull_name());
             pt.setString(2, user.getEmail());
             pt.setString(3, user.getGender());
+            pt.setString(4, user.getUsername());
             pt.execute();
             updated = true; 
             return updated; 
