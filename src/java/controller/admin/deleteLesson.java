@@ -4,24 +4,19 @@
  */
 package controller.admin;
 
+import dao.LessonDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.Lesson;
-import dao.LessonDAO;
-
 /**
  *
  * @author Quach Dinh Kien
  */
-public class ProcessAddLesson extends HttpServlet {
+public class deleteLesson extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,31 +30,10 @@ public class ProcessAddLesson extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        response.setCharacterEncoding("UTF-8");
-
-        String tenBaiHoc = request.getParameter("name_lesson");
-        String chuVietHoa = request.getParameter("write_upper");
-        String chuVietThuong = request.getParameter("write_lower");
-        String chuInHoa = request.getParameter("print_upper");
-        String chuInThuong = request.getParameter("print_lower");
-        String amThanh = request.getParameter("sound_lesson");
-        // add lesson
-        request.setAttribute("message", " ");
-        LessonDAO ld = new LessonDAO();
-        Lesson lesson = new Lesson();
-        
-        lesson.setLessonName(tenBaiHoc); // tam thoi chi co ten thoi vi chua co anh
-        // lesson.setLessonName(tenBaiHoc); // okruu
-        // lesson.setLessonName(tenBaiHoc);
-        // lesson.setLessonName(tenBaiHoc);
-        // lesson.setLessonName(tenBaiHoc);
-        if(ld.addLesson(lesson)){
-            request.setAttribute("message", "Thêm bài học thành công!");
-        }else{
-            request.setAttribute("message", "Thêm bài học thất bại!");
-        }
-        RequestDispatcher dis = request.getRequestDispatcher("addLesson.jsp");
-        dis.forward(request, response);
+        int id = Integer.parseInt(request.getParameter("id"));
+        LessonDAO ud = new LessonDAO();
+        ud.removeLesson(id);
+        response.sendRedirect("LessonStatistics");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

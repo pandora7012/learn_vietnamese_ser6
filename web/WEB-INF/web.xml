@@ -69,6 +69,10 @@
         <servlet-name>PracticeServlet</servlet-name>
         <servlet-class>controller.user.PracticeServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>deleteLesson</servlet-name>
+        <servlet-class>controller.admin.deleteLesson</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -136,6 +140,10 @@
     <servlet-mapping>
         <servlet-name>PracticeServlet</servlet-name>
         <url-pattern>/PracticeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteLesson</servlet-name>
+        <url-pattern>/deleteLesson</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

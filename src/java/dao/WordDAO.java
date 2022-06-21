@@ -37,7 +37,7 @@ public class WordDAO {
         ArrayList<Word> answerList = new ArrayList<Word>();
         Word question = null;
         try {
-            String sql = "Select * from tbl_question where idlesson = ?";
+            String sql = "Select * from tbl_word where idLesson = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();

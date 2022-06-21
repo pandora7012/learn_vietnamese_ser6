@@ -101,23 +101,24 @@
                       <%= u.getLessonName()%>
                     </td>
                     <td>
-                      <% ArrayList<Word> words;
+                        
+                      <% 
                         WordDAO wordDao = new WordDAO();
-                        words = wordDao.getWordListViaLessonID(u.getId());
-                        words.size();
+                        ArrayList<Word> words =(ArrayList<Word>)wordDao.getWordListViaLessonID(u.getId());;
+                        out.print(words.size());
                         %>
                     </td>
                     <td>
                       <% ArrayList<Question> ques;
                         QuestionDAO quesDao = new QuestionDAO();
                         ques = quesDao.getQuestionListViaLessonID(u.getId());
-                        ques.size();
+                        out.print(ques.size());
                         %>
                     </td>
                     <td>
                       <div class="w-100 h-100 d-flex align-items-center justify-content-center">
                         <div class="icons-table">
-                          <i class="fa-solid fa-trash-can"></i>
+                          <a href="deleteLesson?id=<%= u.getId() %>" <i class="fa-solid fa-trash-can"></i></a>
                         </div>
                       </div>
                     </td>

@@ -68,16 +68,11 @@ public class LessonDAO {
        return list;
     }
 
-    public boolean deleteLesson(int id){
-        boolean deleted = false ; 
-        try{
-            String query = "Delete from tbl_lesson where id = " + id; 
-            PreparedStatement pt = conn.prepareStatement(query);
-            pt.execute();
-            deleted = true;
-        }
-        catch (Exception e) {
-        }
-        return deleted;
+    public void removeLesson(int id){
+        try {
+            PreparedStatement ps =  conn.prepareStatement("DELETE FROM tbl_lesson WHERE idlesson = ?");
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        } catch (SQLException e) {System.out.println("Error: " + e.getMessage()); }
     }
 }

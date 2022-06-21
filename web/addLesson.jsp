@@ -173,7 +173,7 @@
                             </div>
                         </div>
                         ${sessionScope.message_Ques_Word}
-                        <button type="submit" class="btn btn-info ms-4 mt-4" style="width: 80px";>Save</button>
+                        <button type="submit" id="${sessionScope.message_Ques_Word}" onclick="alert(session.getAttribute('message_Ques_Word'))" class="btn btn-info ms-4 mt-4" style="width: 80px";>Save</button>
                     </div>
                 </form>
                     <%

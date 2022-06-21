@@ -115,7 +115,7 @@
                         <td>
                             <div class="w-100 h-100 d-flex align-items-center justify-content-center"> 
                                 <div class="icons-table">
-                                    <a href="deleteUser?username=<%= u.getUsername() %>" onclick="testConfirmDialog()"<i class="fa-solid fa-trash-can"></i></a>
+                                    <a href="deleteUser?username=<%= u.getUsername() %>" <i class="fa-solid fa-trash-can"></i></a>
                                 </div>
                             </div>
                         </td>
@@ -124,56 +124,6 @@
                             i++;
                            }
                         %>
-                      <!-- <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>
-                            <img src="https://s120-ava-talk.zadn.vn/8/1/9/6/39/120/d8b1bf93072087e093ed8d3c702b3dd6.jpg" alt="mdo" width="50" height="50" class="rounded-circle">
-                        </td>
-                        <td>@mdo</td>
-                        <td>HN</td>
-                        <td>
-                            <div class="w-100 h-100 d-flex align-items-center justify-content-center"> 
-                                <div class="icons-table">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </div>
-                            </div>
-                        </td>
-                      </tr>
-
-
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>
-                            <img src="https://s120-ava-talk.zadn.vn/8/1/9/6/39/120/d8b1bf93072087e093ed8d3c702b3dd6.jpg" alt="mdo" width="50" height="50" class="rounded-circle">
-                        </td>
-                        <td>@fat</td>
-                        <td>HN</td>
-                        <td>
-                            <div class="w-100 h-100 d-flex align-items-center justify-content-center"> 
-                                <div class="icons-table">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </div>
-                            </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry the Bird</td>
-                        <td>
-                            <img src="https://s120-ava-talk.zadn.vn/8/1/9/6/39/120/d8b1bf93072087e093ed8d3c702b3dd6.jpg" alt="mdo" width="50" height="50" class="rounded-circle">
-                        </td>
-                        <td>@twitter</td>
-                        <td>HN</td>
-                        <td>
-                            <div class="w-100 h-100 d-flex align-items-center justify-content-center"> 
-                                <div class="icons-table">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </div>
-                            </div>
-                        </td>
-                      </tr> -->
                     </tbody>
                   </table>
             </div>

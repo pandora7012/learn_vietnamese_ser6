@@ -65,16 +65,14 @@ public class ProcessAddQuestionWord extends HttpServlet {
 
         QuestionDAO questionDao = new QuestionDAO();
         WordDAO wordDao = new WordDAO();
-
         String message = "";
-        request.setAttribute("message", message);
+        request.setAttribute("message", "");
 
         String chooseID = request.getParameter("select_sub");
         if (chooseID.equals("none")) {
             message = "Vui lòng chọn bài học!";
             request.setAttribute("message_Ques_Word", message);
-            RequestDispatcher rd = request.getRequestDispatcher("/addLesson.jsp");
-            rd.forward(request, response);
+            response.sendRedirect("/addLesson.jsp");
         }
          else {
             int lessonID = Integer.parseInt(request.getParameter("select_sub"));
